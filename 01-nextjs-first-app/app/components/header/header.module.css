@@ -1,0 +1,28 @@
+.header {
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    padding: 4px;
+}
+.headerUl {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+.headerLi:first-child {
+    margin-left: 12px;
+    color: #0c9a9d;
+}
+.headerLi:last-child {
+    margin-left: 12px;
+    color: #ab79dd;
+}
+
+.headerLi:first-child a:hover {
+    color: lime;
+    text-decoration: underline;
+}
+.headerLi:last-child a:hover {
+    color: yellowgreen;
+    text-decoration: underline;
+}
