@@ -1,5 +1,5 @@
 {
-  "name": "01-nextjs-first",
+  "name": "01-nextjs-first-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,6 +16,6 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "standard": "17.1.0"
+    "standard": "^17.1.0"
   }
 }
