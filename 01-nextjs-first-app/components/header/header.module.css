@@ -2,6 +2,7 @@
     border: 1px solid #f0f0f0;
     border-radius: 4px;
     padding: 4px;
+    margin-bottom: 12px;
 }
 .headerUl {
     display: flex;
@@ -9,9 +10,12 @@
     gap: 24px;
 }
 
-.headerLi:first-child {
+.headerLi {
     margin-left: 12px;
     color: #0c9a9d;
+}
+.headerLi a:hover {
+    text-decoration: underline;
 }
 .headerLi:last-child {
     margin-left: 12px;
@@ -20,9 +24,9 @@
 
 .headerLi:first-child a:hover {
     color: lime;
-    text-decoration: underline;
+
 }
 .headerLi:last-child a:hover {
     color: yellowgreen;
-    text-decoration: underline;
+
 }
