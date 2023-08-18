@@ -45,6 +45,8 @@ Para preguntas sobre React existe esta página, [Reactjs.wiki](https://www.react
 
 - API que voy a usar -> [JSON Placeholder](https://jsonplaceholder.typicode.com)
 
+- Una funcionalidad para las fuentes es hacer el install de next/font la cual te da acceso a todas las fuentes de google sin tener que descargarlas o hacer el link. El ejemplo está en el layout general, el de app, y lo he instalado como **npm i @next/font -E** pero por motivos del .babelrc me dice que hay incompatibilidades y no se como solucionarlo
+
 ## Explicaciones y anotaciones interesantes
 
 - En Nextjs necesitas que las rutas tengan el page.js o page.jsx. Si usas por ejemplo index.jsx no funcionará
