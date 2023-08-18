@@ -5,6 +5,6 @@ export default function Post( { params } ) {
     
 
     return (
-        <h1>Post 1 con el id: {id}</h1>
+        <h1>Post con el id: {id}</h1>
     )
 }

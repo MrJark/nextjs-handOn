@@ -64,3 +64,9 @@ Para preguntas sobre React existe esta página, [Reactjs.wiki](https://www.react
 - Los componentes, todos ellos, dentro de la carpeta app, son ejecutados siempre en el servidor **por defecto** por tanto, no podemso colocar funcionea que se ejecuten en la parte del cliente como puede ser un btn.
 
 - Para convertir los componentes por default del server al cliente tenemos que poner en la **primera linea del file en formato string 'use client'**
+
+- Cuando haces un build y quieres que tu página/web no sea estática, cuando hagas el fetch, tienes que pasarle como segundo argumento que en el caché no sea un store -> **{ cache: 'no-store' }** Hay varios métodos que he colocado en la página **ListOfPost.jsx** con sus debidas explicaciones
+
+- Cuando usamos un layout dentro de una ruta este siempre va a ser predominante al page porque es algo que encuelve la página, en este caso la página de la ruta por tanto, para que se renderice también la page, al layout tenemos que pasarle los children como param y renderizarlo en el return como **{children}**
+
+    + Tienes que tener en cuenta con este layout y donde está colocado ya que a nivel componente se "destruye" cuando cambias de ruta de post al about o al page pero no cambia o se "destruye" cuando vas a una ruta interna, como sería el caso de pasar de la ruta about (general) a la de id
