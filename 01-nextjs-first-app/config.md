@@ -63,10 +63,14 @@ Para preguntas sobre React existe esta página, [Reactjs.wiki](https://www.react
 
 - Los componentes, todos ellos, dentro de la carpeta app, son ejecutados siempre en el servidor **por defecto** por tanto, no podemso colocar funcionea que se ejecuten en la parte del cliente como puede ser un btn.
 
-- Para convertir los componentes por default del server al cliente tenemos que poner en la **primera linea del file en formato string 'use client'**
+- Para convertir los componentes por default del server al cliente tenemos que poner en la **primera linea del file en formato string 'use client'** Este solo debería ponerse en el componente más pequeño, y seguramente sea aquel que use algunos efectos como useState o useEffect...
 
 - Cuando haces un build y quieres que tu página/web no sea estática, cuando hagas el fetch, tienes que pasarle como segundo argumento que en el caché no sea un store -> **{ cache: 'no-store' }** Hay varios métodos que he colocado en la página **ListOfPost.jsx** con sus debidas explicaciones
 
 - Cuando usamos un layout dentro de una ruta este siempre va a ser predominante al page porque es algo que encuelve la página, en este caso la página de la ruta por tanto, para que se renderice también la page, al layout tenemos que pasarle los children como param y renderizarlo en el return como **{children}**
 
     + Tienes que tener en cuenta con este layout y donde está colocado ya que a nivel componente se "destruye" cuando cambias de ruta de post al about o al page pero no cambia o se "destruye" cuando vas a una ruta interna, como sería el caso de pasar de la ruta about (general) a la de id
+
+- La creación de los ficheros **loading.psx** lo que permite es mostrar cierto contenido si una página tarda más de la cuenta y esto lo hace por defecto, sin decirle nada solo creando el file. Aunque hay otro método que se puede usar y que es un componente nativo de React que es el **suspense** el cual hace lo mismo que el loading pero en este caso, tines que envolver el componente que quieras que tenga esta 'funcionalidad' donde en el fallback le tienes que pasar aquellos que quieres que muestre. El ejemplo lo he hecho en la page.jsx del post
+
+- El file de **error.jsx** funciona igual que la page, loading o el layout donde cuando haya un error, directamente saltará esta page peroor **SIEMPRE debe ser la pagina de error 'use client'**
