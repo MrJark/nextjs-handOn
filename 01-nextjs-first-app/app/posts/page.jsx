@@ -1,6 +1,8 @@
-export default function PostPage() {
+import { ListOfPost } from "./ListOfPost";
 
+
+export default async function PostPage() {
     return (
-        <h1>Post Pages</h1>
+        <ListOfPost/>
     )
 }

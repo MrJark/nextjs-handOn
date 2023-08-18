@@ -98,6 +98,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-family-title);
+  margin: 8px 0px;
 }
 
 body {
@@ -118,6 +119,10 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+article {
+  margin-bottom: 12px;
 }
 
 @media (prefers-color-scheme: dark) {
