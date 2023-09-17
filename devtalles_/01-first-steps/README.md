@@ -1,34 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Primera app del curso de Devtalles Nextjs 13
 
-## Getting Started
+He inicializado con **npm**
 
-First, run the development server:
+## Instalaciones y dependencias
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Acturalmente turbopack está en beta pero voy a cambiar el script en el **.json** para usarlo:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  ```json
+    "dev": "next dev --turbo",
+  ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Comentarios
 
-## Learn More
+- !OJO! Dependiendo de la fuente que elijas, tendrás que ver que es lo obligatorio que tienes que pasarle. Por ejemplo, en **Ubuntu** lo obligatorio es el weight y no el subsets
 
-To learn more about Next.js, take a look at the following resources:
+- En la carpeta app, hay ciertos nombres que están reservados por ejemplo: pages, error, layout...
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Hay que tener en las páginas el **export default...** de manera **obligada** si queires que funcionen las rutas
