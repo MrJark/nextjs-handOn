@@ -49,6 +49,8 @@ He inicializado con **npm**
 
   Donde el primer 3000 es el puerto donde va a correr la app y el segundo es el de Docker
 
+- La intalación que he comantado antes, **no es la recomendada** segun Versel. La rocomendada está [aquí](https://nextjs.org/docs/pages/building-your-application/deploying#docker-image)
+
 ## Comentarios
 
 - !OJO! Dependiendo de la fuente que elijas, tendrás que ver que es lo obligatorio que tienes que pasarle. Por ejemplo, en **Ubuntu** lo obligatorio es el weight y no el subsets
