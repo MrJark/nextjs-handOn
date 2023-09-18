@@ -19,3 +19,11 @@ He inicializado con **npm**
 - En la carpeta app, hay ciertos nombres que están reservados por ejemplo: pages, error, layout...
 
 - Hay que tener en las páginas el **export default...** de manera **obligada** si queires que funcionen las rutas
+
+- La metadata es muy importante para el **SEO** ya que le dice a google de que trata. Esto lo construyes en la página de **layout.tsx**
+
+- Instala las extensones recomendadas en [este](https://gist.github.com/klerith/2d46749155918952b593e952dc7cf5c8) fichero para que sea más sencillo desarrollar en Next13
+
+- Al crear la carpeta general e introducir todas las rutas dentro, puedo tener un layout _general_ y no duplicar código. Pero es **muy** importante que tengas en cuenta que si a la carpeta no le pones los **paréntesis** te lo pondrá como ruta mientas que si los pones, le estarás diciendo a Next que no la tenga en cuenta para la root
+
+- 

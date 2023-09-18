@@ -4,12 +4,13 @@ import { Ubuntu } from 'next/font/google'
 
 const inter = Ubuntu({ weight: '300', style: 'normal' }) // ojo a las fuentes que coges y las propiedades obligatorias
 
+
 export const metadata: Metadata = {
-  title: 'mrjark',
+  title: 'mrjark website',
   description: 'Generated with 💚 by mrjark',
 }
 
-export default function RootLayout({
+export default function RootLayout ({ // este es un HOC proque recibe un children
   children,
 }: {
   children: React.ReactNode
