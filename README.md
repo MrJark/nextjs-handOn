@@ -8,4 +8,6 @@ Un repo donde voy a ir haciendo proyectos para practicar el framework de React, 
 
   Para saber más de los metatags, [google](https://developers.google.com/search/docs/crawling-indexing/special-tags) es tu amigo
 
-- 
+- Aquellos elementos que sean compartidos a nivel global de la app, como puede ser el header o una barra de navegaciñon, debes crear un acarpeta **componentes** en la raiz
+
+- Por defecto **todo** es server components

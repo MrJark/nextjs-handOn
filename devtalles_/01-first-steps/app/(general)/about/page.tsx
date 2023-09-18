@@ -10,10 +10,7 @@ export const metadata: Metadata = {
 export default function About () {
   return (
     <>
-      <main className="flex flex-col items-center p-24">
-        <h1 className=" text-5xl text-red-300">About Page</h1>
-        <span className=" text-3xl">Una about mas</span>
-      </main>
+      <h1 className=" text-rose-300 text-5xl">Una about mas</h1>
     </>
   )
 }
