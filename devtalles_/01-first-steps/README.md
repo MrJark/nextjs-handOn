@@ -10,7 +10,7 @@ He inicializado con **npm**
     "dev": "next dev --turbo",
   ```
 
-- 
+- Voy a usar los iconos de [Octicons](https://primer.style/design/foundations/icons) **npm install @primer/octicons-react**
 
 ## Comentarios
 
