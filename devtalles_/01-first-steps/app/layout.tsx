@@ -2,7 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Ubuntu } from 'next/font/google'
 
-const inter = Ubuntu({ weight: '300', style: 'normal' }) // ojo a las fuentes que coges y las propiedades obligatorias
+const ubuntu = Ubuntu({ weight: '500', style: 'normal', subsets: ["latin"]}) // ojo a las fuentes que coges y las propiedades obligatorias. Ojo: si quitas el turbopack, para que los mudoles funcionen, los subsets son obligatorios o por lo menos, lo son si no quitas el proload y es un arreglo
 
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function RootLayout ({ // este es un HOC proque recibe un childre
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={ubuntu.className}>{children}</body>
     </html>
   )
 }
