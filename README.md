@@ -11,3 +11,7 @@ Un repo donde voy a ir haciendo proyectos para practicar el framework de React, 
 - Aquellos elementos que sean compartidos a nivel global de la app, como puede ser el header o una barra de navegaciñon, debes crear un acarpeta **componentes** en la raiz
 
 - Por defecto **todo** es server components
+
+- Para tener imágenes de webs agenas a la que estás construyendo, necesitas [modificar](https://nextjs.org/docs/messages/next-image-unconfigured-host) el next.config.js 
+
+- 

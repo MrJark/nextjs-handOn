@@ -9,3 +9,9 @@ Para seguir el curso necesitas saber sobre:
   - JavaScript
 
   - TypeScript
+
+## Librerías y componente útiles
+
+- [TailwindComponents](https://tailwindcomponents.com)
+
+- [React Icons](https://react-icons.github.io/react-icons/)

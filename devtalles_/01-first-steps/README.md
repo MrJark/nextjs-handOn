@@ -12,6 +12,8 @@ He inicializado con **npm**
 
 - Voy a usar los iconos de [Octicons](https://primer.style/design/foundations/icons) **npm install @primer/octicons-react**
 
+- Para el 02-... voy a usar [React Icons](https://react-icons.github.io/react-icons/) **npm install react-icons --save**
+
 - No es una instalación pero he usado Docker. He creado el fichero **.dockerignore** en el cual he puesto:
   
   ```
