@@ -10,7 +10,7 @@ export const CartCounter = ( { value = 0 }:Props ) => {
     const [counter, setCounter] = useState(value);
 
     const pushCounter = ( value: number) => {
-      setCounter( prev => ( prev + value ));
+      setCounter( prev => Math.max( prev + value, 0 )); // con una sola función a través del value, le digo que me haga la cuenta y además, que elija entre el mayor del value o cero y con esto esvito que sean números negativos
     }
     return (
         <>
