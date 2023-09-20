@@ -3,6 +3,7 @@ import Image from "next/image"
 import { TbBrandDaysCounter } from 'react-icons/tb'
 import { BiHomeAlt2 } from 'react-icons/bi'
 import { IoLogoReact } from 'react-icons/io5';
+import { MdOutlineCatchingPokemon } from 'react-icons/md'
 
 import { SidebarMenuItem } from "./SidebarMenuItem"
 
@@ -19,6 +20,12 @@ const menuItems= [
         icon: <TbBrandDaysCounter size={35} />,
         title: 'Counter',
         subtitle: 'Visualización',
+    },
+    {
+        path: '/dashboard/pokemons',
+        icon: <MdOutlineCatchingPokemon size={35} />,
+        title: 'Pokedex',
+        subtitle: 'All pokemons are here',
     },
 ]
 

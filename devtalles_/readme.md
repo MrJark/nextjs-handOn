@@ -15,3 +15,5 @@ Para seguir el curso necesitas saber sobre:
 - [TailwindComponents](https://tailwindcomponents.com)
 
 - [React Icons](https://react-icons.github.io/react-icons/)
+
+- [Pokeapi](https://pokeapi.co)
