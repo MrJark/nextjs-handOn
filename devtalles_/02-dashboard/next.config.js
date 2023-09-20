@@ -5,7 +5,11 @@ const nextConfig = {
             {
                 hostname: 'unavatar.io',
                 protocol: 'https'
-            }
+            },
+            {
+                hostname: 'pokeapi.co',
+                protocol: 'https'
+            },
         ]
     }
 }

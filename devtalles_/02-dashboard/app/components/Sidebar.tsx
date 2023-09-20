@@ -4,6 +4,7 @@ import { TbBrandDaysCounter } from 'react-icons/tb'
 import { BiHomeAlt2 } from 'react-icons/bi'
 import { IoLogoReact } from 'react-icons/io5';
 import { MdOutlineCatchingPokemon } from 'react-icons/md'
+import { SiNextdotjs } from 'react-icons/si'
 
 import { SidebarMenuItem } from "./SidebarMenuItem"
 
@@ -34,9 +35,10 @@ export const Sidebar = () => {
 
         <div id="menu" 
             style={{ width: '400px'}}
-            className="bg-gray-950 min-h-screen z-10 text-slate-300 w-64 left-0 h-screen overflow-y-scroll">
-            <div id="logo" className=" flex text-4xl justify-center pt-6 ">
+            className="bg-gray-950 min-h-screen z-10 text-slate-300 w-64 left-0 overflow-y-scroll">
+            <div id="logo" className=" flex text-4xl justify-between pt-6 px-24 ">
                 <IoLogoReact className=' text-cyan-400 animate-spin-slow-react' />
+                <SiNextdotjs className=' text-white animate-pulse' />
             </div>
             <div id="profile" className="px-6 pb-4 pt-8">
                 <p className="text-slate-500">Welcome back,</p>
