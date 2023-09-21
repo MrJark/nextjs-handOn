@@ -14,6 +14,10 @@ const nextConfig = {
                 hostname: 'midu.dev',
                 protocol: 'https'
             },
+            {
+                hostname: 'raw.githubusercontent.com',
+                protocol: 'https'
+            },
         ]
     }
 }
