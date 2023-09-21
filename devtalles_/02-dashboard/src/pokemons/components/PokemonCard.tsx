@@ -29,14 +29,20 @@ export const PokemonCard = ({ pokemon }: Props ) => {
             />
 
             <p className="pt-2 text-lg font-semibold text-gray-950 capitalize">{name}</p>
-            <div className="mt-5 ">
-              <Link href={`/dashboard/pokemon/${id}`} className="border border-gray-700 rounded-full py-2 px-4 text-xs font-semibold text-gray-800">
-                More Info
-              </Link>
+            <div className="mt-5">
+              <p className="mb-2 text-gray-800 font-medium tracking-wide">More info</p>
+              <div className="flex flex-row gap-3">
+                <Link href={`/dashboard/pokemon/${id}`} className="border border-gray-700 rounded-full py-2 px-4 text-xs font-semibold text-gray-800">
+                  by Id
+                </Link>
+                <Link href={`/dashboard/pokemon/${name}`} className="border border-gray-700 rounded-full py-2 px-4 text-xs font-semibold text-gray-800">
+                  by Name
+                </Link>
+              </div>
             </div>
           </div>
           <div className="">
-            <Link className="px-4 py-2 bg-gray-400 flex items-center justify-center" href="/dashboard/main">
+            <Link className="px-4 py-2 bg-gray-400 flex items-center justify-center" href="/dashboard/pokemons">
 
                 <div>
                     <IoHeartCircleOutline className='text-red-600 text-3xl' />

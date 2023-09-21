@@ -1,7 +1,9 @@
 import { Pokemon } from "@/src/pokemons";
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { TbArrowBackUp } from "react-icons/tb";
 
 interface Props {
     params: {id: string},
@@ -91,9 +93,17 @@ export default async function PokemonPage({ params }: Props) {
       <div className="flex mt-5 flex-col items-center text-slate-950">
         <div className="relative flex flex-col items-center rounded-[20px] w-[700px] mx-auto bg-gray-300 bg-clip-border  shadow-lg  p-3">
           <div className="mt-2 mb-8 w-full">
-            <h1 className="px-2 text-xl font-bold text-slate-700 capitalize">
-              #{pokemon.id} {pokemon.name}
-            </h1>
+            <div className="flex flex-row justify-between">
+              <h1 className="px-2 text-xl font-bold text-slate-700 capitalize">
+                #{pokemon.id} {pokemon.name}
+              </h1>
+              <Link 
+                href="/dashboard/pokemons"
+                className=" w-10 h-10 flex items-center justify-center mr-4 bg-slate-950 rounded-full text-white hover:bg-red-300 hover:text-black"
+              >
+                <TbArrowBackUp className="text-4xl" />
+              </Link>
+            </div>
             <div className="flex flex-col justify-center items-center">
               <Image
                 src={pokemon.sprites.other?.dream_world.front_default ?? ''}
