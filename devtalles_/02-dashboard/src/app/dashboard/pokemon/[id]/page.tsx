@@ -1,6 +1,7 @@
 import { Pokemon } from "@/src/pokemons";
 import { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 interface Props {
     params: {id: string},
@@ -28,18 +29,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 } 
 
 const getPokemon = async ( id: string ): Promise<Pokemon> => {
-    const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`,{
-        cache: 'force-cache', // obliga a que se use el caché si se manda más de una vez para no hacer más de una petición sin sentido
-        next: { // esto lo que hace es revalidar la petición cada 6 meses por si cambia algo que se mantenga actualizada
-            revalidate: 60 * 60 * 30 * 6
-        }
-    })
-    .then( res => res.json())
+    // formas para manejar los errores
+    // 1ª a través de un trycatch
+    try {
+        const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`,{
+            cache: 'force-cache', // obliga a que se use el caché si se manda más de una vez para no hacer más de una petición sin sentido
+            next: { // esto lo que hace es revalidar la petición cada 6 meses por si cambia algo que se mantenga actualizada
+                revalidate: 60 * 60 * 30 * 6
+            }
+        })
+        .then( res => res.json())
+    
+        // console.log('Se cargo: ', pokemon.name);
+        
+    
+        return pokemon;
+    } catch (error) {
+        notFound()
+    }
+    
+    // const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`,{
+    //     cache: 'force-cache', // obliga a que se use el caché si se manda más de una vez para no hacer más de una petición sin sentido
+    //     next: { // esto lo que hace es revalidar la petición cada 6 meses por si cambia algo que se mantenga actualizada
+    //         revalidate: 60 * 60 * 30 * 6
+    //     }
+    // })
+    // .then( res => res.json())
 
-    // console.log('Se cargo: ', pokemon.name);
+    // // console.log('Se cargo: ', pokemon.name);
     
 
-    return pokemon;
+    // return pokemon;
 }
 
 
