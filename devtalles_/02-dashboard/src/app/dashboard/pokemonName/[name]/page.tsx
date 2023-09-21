@@ -1,4 +1,6 @@
-/* //* Tarea: Hacer que esta tarea funcione ✅ */
+/* //* Tarea: Hacer que esta tarea funcione ✅ 
+  ! Habia creado casi bien la tarea porque habia creado la misma ruta para dos páginas distintas
+*/
 
 import { Pokemon, PokemonResponse } from "@/src/pokemons";
 import { Metadata } from "next";

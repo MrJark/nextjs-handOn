@@ -32,10 +32,10 @@ export const PokemonCard = ({ pokemon }: Props ) => {
             <div className="mt-5">
               <p className="mb-2 text-gray-800 font-medium tracking-wide">More info</p>
               <div className="flex flex-row gap-3">
-                <Link href={`/dashboard/pokemon/${id}`} className="border border-gray-700 rounded-full py-2 px-4 text-xs font-semibold text-gray-800">
+                <Link href={`/dashboard/pokemonId/${id}`} className="border border-gray-700 rounded-full py-2 px-4 text-xs font-semibold text-gray-800">
                   by Id
                 </Link>
-                <Link href={`/dashboard/pokemon/${name}`} className="border border-gray-700 rounded-full py-2 px-4 text-xs font-semibold text-gray-800">
+                <Link href={`/dashboard/pokemonName/${name}`} className="border border-gray-700 rounded-full py-2 px-4 text-xs font-semibold text-gray-800">
                   by Name
                 </Link>
               </div>
