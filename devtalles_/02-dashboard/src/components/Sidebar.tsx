@@ -2,7 +2,7 @@ import Image from "next/image"
 
 import { TbBrandDaysCounter } from 'react-icons/tb'
 import { BiHomeAlt2 } from 'react-icons/bi'
-import { IoLogoReact } from 'react-icons/io5';
+import { IoHeartOutline, IoLogoReact } from 'react-icons/io5';
 import { MdOutlineCatchingPokemon } from 'react-icons/md'
 import { SiNextdotjs } from 'react-icons/si'
 
@@ -24,9 +24,15 @@ const menuItems= [
     },
     {
         path: '/dashboard/pokemons',
-        icon: <MdOutlineCatchingPokemon size={35} />,
+        icon: <MdOutlineCatchingPokemon size={35} className='text-red-500'/>,
         title: 'Pokedex',
         subtitle: 'All pokemons are here',
+    },
+    {
+        path: '/dashboard/favs',
+        icon: <IoHeartOutline size={35} />,
+        title: 'Fav Pokemons',
+        subtitle: 'Global State',
     },
 ]
 
