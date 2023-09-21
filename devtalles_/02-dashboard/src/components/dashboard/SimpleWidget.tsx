@@ -8,14 +8,14 @@ export const SimpleWidget = () => {
           <h2 className="font-bold text-gray-800 text-center">Contador</h2>
         </div>
         <div className="my-3">
-          <div className="flex flex-row items-center justify-center space-x-1 ">
+          <div className="flex flex-row items-center text-gray-600 justify-center space-x-1 ">
             <div id="icon">
               {/* Icono irá aquí */}
               <IoCafeOutline size={50} />
             </div>
-            <div id="temp" className="text-center">
-              <h4 className="text-4xl">Titulo</h4>
-              <p className="text-xs text-gray-500">Subtitulo</p>
+            <div id="temp" className="text-right">
+              <h4 className="text-4xl text-right">Titulo</h4>
+              <p className="text-sm text-gray-500 text-right">Subtitulo</p>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 'use client'
 import { useAppDispatch, useAppSelector } from "@/src/store";
-import { addOne, substractOne } from "@/src/store/counter/counterSlice";
-import { useState } from "react";
+import { addOne, initCounterState, substractOne } from "@/src/store/counter/counterSlice";
+import { useEffect, useState } from "react";
 
 // OJO, PARA USAR EL REDUCER NECESITA ESTAR DEL LADO DEL CLIENTE
 
@@ -13,8 +13,12 @@ export const CartCounter = ( { value = 0 }:Props ) => {
     // const [counter, setCounter] = useState(value);
 
     const count = useAppSelector( state => state.counter.count); // tendrá el valor de 2 que es el que le he dado en el counterSlice
-
     const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch( initCounterState( value ));
+    }, [dispatch, value]);
+    
 
     // const pushCounter = ( value: number) => {
     //   setCounter( prev => Math.max( prev + value, 0 )); // con una sola función a través del value, le digo que me haga la cuenta y además, que elija entre el mayor del value o cero y con esto esvito que sean números negativos
