@@ -10,6 +10,10 @@ const nextConfig = {
                 hostname: 'pokeapi.co',
                 protocol: 'https'
             },
+            {
+                hostname: 'midu.dev',
+                protocol: 'https'
+            },
         ]
     }
 }

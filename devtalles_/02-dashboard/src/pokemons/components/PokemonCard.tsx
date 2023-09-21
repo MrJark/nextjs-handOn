@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { SimplePokemon } from "../simplePokemon";
 import Image from "next/image";
+
+import { SimplePokemon } from "../interfaces/simplePokemon";
 import { IoHeartCircleOutline } from "react-icons/io5";
 
 interface Props {
-    pokemon: SimplePokemon,
+  pokemon: SimplePokemon,
 }
 
 
@@ -19,11 +20,12 @@ export const PokemonCard = ({ pokemon }: Props ) => {
           <div className="flex flex-col items-center p-6 bg-transparent">
 
             <Image
-                className=""
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
-                width={100}
-                height={100}
-                alt={name}
+              className=""
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
+              width={100}
+              height={100}
+              alt={name}
+              priority={false} /* esto hace que sea un lazyloading. Solo si está en falses */
             />
 
             <p className="pt-2 text-lg font-semibold text-gray-950 capitalize">{name}</p>

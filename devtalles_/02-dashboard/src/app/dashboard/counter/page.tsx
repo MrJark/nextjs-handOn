@@ -1,4 +1,4 @@
-import { CartCounter } from "@/app/shopping-cart/components";
+import { CartCounter } from "@/src/shopping-cart/components";
 import { Metadata } from "next";
 // import { useState } from "react"
 
