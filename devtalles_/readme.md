@@ -17,3 +17,5 @@ Para seguir el curso necesitas saber sobre:
 - [React Icons](https://react-icons.github.io/react-icons/)
 
 - [Pokeapi](https://pokeapi.co)
+
+- Instalación en el 02 de [Redux Toolkit](https://redux-toolkit.js.org/tutorials/quick-start) -> **npm install @reduxjs/toolkit react-redux**
