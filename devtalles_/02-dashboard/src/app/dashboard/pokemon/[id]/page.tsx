@@ -7,25 +7,44 @@ interface Props {
     params: {id: string},
 }
 
+// Esto solo ejecuta en el build time y es para la creación de las páginas de los pokemons que ya se que existen, es decir, si se que tengo 151, como en 1998, voy a crear de manera estática las 151 pag
+export async function generateStaticParams() {
+  
+  const static151pokemons = Array.from({ length: 151 }).map( (value, index) => `${index + 1}` ); // forma en la cual generar 151 páginas estáticas. El i + 1 es porque empieza en el cero y el pokemon cero no existe por tatno, hay que sumarle 1
+
+  return static151pokemons.map( id => ({
+    id: id
+  }))
+  // return [
+  //   { id: '1'},
+  //   { id: '2'},
+  //   { id: '3'},
+  //   { id: '4'},
+  //   { id: '5'},
+  //   { id: '6'},
+  //   { id: '7'},
+  //   { id: '8'},
+  //   { id: '9'},
+  // ]
+}
+
 // esta función es para hacer la metadata de forma dinámica ya que poniendola 'en duro' no sería posible
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
-    try {
-        const pokemon = await getPokemon(params.id);
-        const { id, name } = pokemon;
-    
-        return {
-            title: `#${ id } - ${ name }`,
-            description: `Página del pokemon ${ name }`,
-        }
-    } catch (error) {
-        return {
-            title: `Página del pokemon con el id qeu has buscado no ha sido encontrada`,
-            description: `Commodo anim ad fugiat nulla veniam irure tempor reprehenderit aliquip. Aliqua ipsum ea nisi occaecat excepteur. Irure minim ea cillum quis culpa aute sunt nostrud reprehenderit ut pariatur.`
-        }
-    }
-
-
+  try {
+      const pokemon = await getPokemon(params.id);
+      const { id, name } = pokemon;
+  
+      return {
+          title: `#${ id } - ${ name }`,
+          description: `Página del pokemon ${ name }`,
+      }
+  } catch (error) {
+      return {
+          title: `Página del pokemon con el id qeu has buscado no ha sido encontrada`,
+          description: `Commodo anim ad fugiat nulla veniam irure tempor reprehenderit aliquip. Aliqua ipsum ea nisi occaecat excepteur. Irure minim ea cillum quis culpa aute sunt nostrud reprehenderit ut pariatur.`
+      }
+  }
 } 
 
 const getPokemon = async ( id: string ): Promise<Pokemon> => {
@@ -33,7 +52,7 @@ const getPokemon = async ( id: string ): Promise<Pokemon> => {
     // 1ª a través de un trycatch
     try {
         const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`,{
-            cache: 'force-cache', // obliga a que se use el caché si se manda más de una vez para no hacer más de una petición sin sentido
+            // cache: 'force-cache', // obliga a que se use el caché si se manda más de una vez para no hacer más de una petición sin sentido
             next: { // esto lo que hace es revalidar la petición cada 6 meses por si cambia algo que se mantenga actualizada
                 revalidate: 60 * 60 * 30 * 6
             }
