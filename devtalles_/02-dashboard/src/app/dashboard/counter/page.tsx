@@ -12,6 +12,7 @@ export const metadata:Metadata = {
  ],
 };
 
+
 export default function Counter() {
 
   // Comento la  parte del state y me lo llevo a otro archivo porque es mala práctica tener muchos compoenentes en la parte del cliente. Tan solo deben estar aquellos mínimos necesarios, como en este caso aquellos componentes que usen el state
@@ -20,11 +21,13 @@ export default function Counter() {
   // const pushCounter = ( value: number) => {
   //   setCounter( prev => ( prev + value ));
   // }
+
+  
   // tarea: hacer que fucnione el counter ✅
   return (
     <div className="flex flex-col items-center justify-between py-8 w-full h-80">
       <span className=" text-4xl text-white">Pruduct Cart</span>
-      <CartCounter/>
+      <CartCounter />
       {/* <span className="text-8xl">{counter}</span>
       <div className=" flex ">
         <button

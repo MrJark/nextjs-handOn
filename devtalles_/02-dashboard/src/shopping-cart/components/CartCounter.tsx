@@ -1,6 +1,7 @@
 'use client'
 import { useAppDispatch, useAppSelector } from "@/src/store";
 import { addOne, initCounterState, substractOne } from "@/src/store/counter/counterSlice";
+import { count } from "console";
 import { useEffect, useState } from "react";
 
 // OJO, PARA USAR EL REDUCER NECESITA ESTAR DEL LADO DEL CLIENTE
@@ -9,16 +10,36 @@ interface Props {
     value?: number,
 }
 
+interface CounterResponse {
+    method: string,
+    count: number,
+}
+  
+const getApiCounter = async (): Promise<CounterResponse> => {
+    const data = await fetch('/api/counter')
+        .then( res => res.json() );
+
+    console.log(data);
+    
+    return data;
+    // return data as CounterResponse; // otra forma de tipar y quitas el :Promise<CounterResponse>
+}
+
 export const CartCounter = ( { value = 0 }:Props ) => {
     // const [counter, setCounter] = useState(value);
 
     const count = useAppSelector( state => state.counter.count); // tendrá el valor de 2 que es el que le he dado en el counterSlice
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        dispatch( initCounterState( value ));
-    }, [dispatch, value]);
+    // useEffect(() => {
+    //     dispatch( initCounterState( value ));
+    // }, [dispatch, value]);
     
+
+    useEffect(() => {
+        getApiCounter()
+        .then( ({count}) => dispatch( initCounterState(count) ))
+    }, [dispatch])
 
     // const pushCounter = ( value: number) => {
     //   setCounter( prev => Math.max( prev + value, 0 )); // con una sola función a través del value, le digo que me haga la cuenta y además, que elija entre el mayor del value o cero y con esto esvito que sean números negativos
