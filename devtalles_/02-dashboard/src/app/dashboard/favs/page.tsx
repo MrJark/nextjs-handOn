@@ -1,33 +1,26 @@
-import { PokemonGrid, PokemonResponse, SimplePokemon } from "@/src/pokemons";
-
+import { FavPokemons } from "@/src/pokemons";
 
 
 export const metadata = {
- title: 'Fav',
- description: 'Fav',
+ title: 'Fav Pokemon Page',
+ description: 'Fav Pokemons',
 };
 
 
 export default async function Pokemons() {
+
+  // Esto era para la tarea 2, estaba bien pero no en este archivo
+  // const isFav = useAppSelector( state => state.pokemons )
+  // console.log(isFav);
+  
 
   return (
     <>
         <div className="flex flex-col text-center">
           <span className="text-4xl font-semibold my-6 text-blue-50">Favourites Pokemons</span>
           <div className="flex flex-wrap gap-10 items-center justify-center">
-            {/** Tarea: Crear todos los poquemons ✅*/}
-            {/* {
-              pokemons.map( pokemon => (
-                <Image
-                key={pokemon.id}
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
-                  width={100}
-                  height={100}
-                  alt={pokemon.name}
-                />
-              ))
-            } */}
-            <PokemonGrid pokemons={[]}/>
+            
+            <FavPokemons />
           </div>
 
         </div>

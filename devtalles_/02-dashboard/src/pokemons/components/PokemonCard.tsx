@@ -1,8 +1,11 @@
+'use client'
 import Link from "next/link";
 import Image from "next/image";
 
 import { SimplePokemon } from "../interfaces/simplePokemon";
-import { IoHeartCircleOutline } from "react-icons/io5";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { useAppDispatch, useAppSelector } from "@/src/store";
+import { toggleFav } from "@/src/store/pokemon/pokemons";
 
 interface Props {
   pokemon: SimplePokemon,
@@ -11,8 +14,14 @@ interface Props {
 
 export const PokemonCard = ({ pokemon }: Props ) => {
 
-    const { name, id } = pokemon;
+  const { name, id } = pokemon;
+  const isFav = useAppSelector( state => !!state.pokemons[id] ); // transforma un objeto que va a estar en el staore en la parte del state en fav en un boolean
+  const dispatch = useAppDispatch();
 
+  const onToggle = () => {
+    // console.log('click', pokemon);
+    dispatch( toggleFav(pokemon) ) 
+  }
   return (
     <>
       <div className="mx-auto right-0 mt-2 w-60 ">
@@ -20,7 +29,6 @@ export const PokemonCard = ({ pokemon }: Props ) => {
           <div className="flex flex-col items-center p-6 bg-transparent">
 
             <Image
-              className=""
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
               width={100}
               height={150}
@@ -42,20 +50,30 @@ export const PokemonCard = ({ pokemon }: Props ) => {
             </div>
           </div>
           <div className="">
-            <Link className="px-4 py-2 bg-gray-400 flex items-center justify-center" href="/dashboard/pokemons">
+            <div 
+              onClick={onToggle}
+              className="px-4 py-2 bg-gray-400 hover:bg-gray-500 flex items-center justify-center cursor-pointer"
+            >
+              <div>
+                {
+                  isFav 
+                    ? <AiFillHeart className='text-red-600 text-3xl' />
+                    : <AiOutlineHeart className='text-red-600 text-3xl' />
+                }
+              </div>
+              <div className="pl-3">
+                  <p className="text-lg font-semibold text-gray-800 leading-none">
+                    {
+                      isFav ? 'Remove to Fav' : 'Add to fav'
+                    }
+                  </p>
+              </div>
+            </div>
 
-                <div>
-                    <IoHeartCircleOutline className='text-red-600 text-3xl' />
-                </div>
-                <div className="pl-3">
-                    <p className="text-lg font-semibold text-gray-800 leading-none">
-                    Fav
-                    </p>
-                </div>
-
-            </Link>
           </div>
+
         </div>
+
       </div>
     </>
   );

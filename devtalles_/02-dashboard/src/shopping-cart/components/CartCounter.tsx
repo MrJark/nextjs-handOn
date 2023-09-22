@@ -19,7 +19,7 @@ const getApiCounter = async (): Promise<CounterResponse> => {
     const data = await fetch('/api/counter')
         .then( res => res.json() );
 
-    console.log(data);
+    // console.log(data);
     
     return data;
     // return data as CounterResponse; // otra forma de tipar y quitas el :Promise<CounterResponse>
