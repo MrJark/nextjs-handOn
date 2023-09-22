@@ -41,7 +41,7 @@ export const SimpleWidget = ({ title, href, icon, label, subtitle }: Props) => {
           href 
             ? 
               <div className="w-full place-items-end text-right border-t-2 border-gray-100 mt-2">
-                <Link href={`${href}`} className="text-indigo-600 text-xs font-medium">More</Link>
+                <Link href={href} className="text-indigo-600 text-xs font-medium">More</Link>
               </div>
             : ''
         }

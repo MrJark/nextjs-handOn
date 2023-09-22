@@ -2,7 +2,7 @@
 
 export interface PokemonResponse {
     count:    number,
-    next:     null,
+    next:     string,
     previous: null,
     results:  Result[],
 }

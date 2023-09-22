@@ -6,7 +6,4 @@ export default function Home() {
 
   redirect('/dashboard/main')
 
-  return (
-    <></>
-  )
 }

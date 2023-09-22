@@ -29,9 +29,10 @@ export const PokemonCard = ({ pokemon }: Props ) => {
           <div className="flex flex-col items-center p-6 bg-transparent">
 
             <Image
+              key={id}
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
               width={100}
-              height={150}
+              height={100}
               alt={name}
               priority={false} /* esto hace que sea un lazyloading. Solo si está en falses */
             />

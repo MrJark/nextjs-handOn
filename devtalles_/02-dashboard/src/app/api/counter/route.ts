@@ -4,6 +4,15 @@ import { NextResponse } from "next/server";
 export async function GET(request: Request) {
 
     return NextResponse.json({ // recomendable que sea un iobjeto lo que devuelva ya que es más fácil modificarla y añadirle cosas que hahcer un objeto promitivo
+        method: 'GET',
         count: 100,
     })
+}
+
+export async function POST(request: Request) {
+
+    return NextResponse.json({
+        method: 'POST',
+        count: 100,
+    });
 }

@@ -17,10 +17,10 @@ interface PokemonFavState {
 }
 
 export const initialState: PokemonFavState = {
-    '1': { id: '1', name: 'bulbasaur'},
-    '3': { id: '3', name: 'vulvasaur'},
-    '151': { id: '151', name: 'mew'},
-    '150': { id: '150', name: 'mewtwo'},
+  '1': { id: '1', name: 'bulbasaur'},
+  '3': { id: '3', name: 'vulvasaur'},
+  '151': { id: '151', name: 'mew'},
+  '150': { id: '150', name: 'mewtwo'},
 }
 
 const pokemonSlice = createSlice({
@@ -33,8 +33,8 @@ const pokemonSlice = createSlice({
         const { id } = pokemon;
 
         if( !!state[id] ) { // si existe...
-            delete state[id]; // lo elimino
-            return;
+          delete state[id]; // lo elimino
+          return;
         }
 
         state[id] = pokemon; // si no existe, lo creo

@@ -64,10 +64,11 @@ export const Sidebar = () => {
                     menuItems.map( item => (
                         <SidebarMenuItem
                             key={item.path}
-                            path={item.path} 
-                            title={item.title}
-                            subtitle={item.subtitle}
-                            icon={item.icon} 
+                            // path={item.path} 
+                            // title={item.title}
+                            // subtitle={item.subtitle}
+                            // icon={item.icon} 
+                            { ...item }
                         />
 
                     ))
