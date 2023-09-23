@@ -7,6 +7,7 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useAppDispatch, useAppSelector } from "@/src/store";
 import { toggleFav } from "@/src/store/pokemon/pokemons";
 
+
 interface Props {
   pokemon: SimplePokemon,
 }
@@ -17,6 +18,8 @@ export const PokemonCard = ({ pokemon }: Props ) => {
   const { name, id } = pokemon;
   const isFav = useAppSelector( state => !!state.pokemons[id] ); // transforma un objeto que va a estar en el staore en la parte del state en fav en un boolean
   const dispatch = useAppDispatch();
+  // console.log(isFav);
+  
 
   const onToggle = () => {
     // console.log('click', pokemon);
