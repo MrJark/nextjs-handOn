@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# X clone with Tailwind, Next an TS
 
-## Getting Started
+Clon de X con [Midudev](https://www.youtube.com/watch?v=V_kD2q_aoy8&t=46s)
 
-First, run the development server:
+## Dependencias e instalaciones
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- He iniciado el proyecto con **pnpm**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Añdado el esLint con **npx eslint --init** y pnpm y te preguntará lo que quieres que tenga y haga
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Para conectar el proyecto con [Supabase](https://supabase.com) necesitas la siguiente [info](https://supabase.com/docs/guides/auth/auth-helpers/nextjs). La 'buena' config para instalar es **pnpm install @supabase/auth-helpers-nextjs @supabase/supabase-js -E**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  El archivo y la config de .env.local lo he hecho con la ducomentación de Supabase del link 'info'. Vas a la parte de API y ahí tienes los links
 
-## Learn More
+- 
 
-To learn more about Next.js, take a look at the following resources:
+## Comentarios útiles
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Aquello que sea _clikcable_ **siempre** se tendrá que renderizar en el **cliente**. tendrás que usar el _'use client'_ en ese componente
