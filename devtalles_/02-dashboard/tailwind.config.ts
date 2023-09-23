@@ -9,6 +9,7 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/pokemons/**/*.{js,ts,jsx,tsx,mdx}',
     './src/shopping-cart/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/store/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {

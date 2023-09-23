@@ -19,8 +19,8 @@ export default async function Pokemons() {
         <div className="flex flex-col text-center">
           <span className="text-4xl font-semibold my-6 text-blue-50">Favourites Pokemons</span>
           <div className="flex flex-wrap gap-10 items-center justify-center">
-            
-            <FavPokemons />
+            <h1>Hola</h1>
+            {/* <FavPokemons /> */}
           </div>
 
         </div>
