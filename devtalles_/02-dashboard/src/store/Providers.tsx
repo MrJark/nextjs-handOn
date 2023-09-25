@@ -1,16 +1,21 @@
-'use client'
+"use client";
 
-import { Provider } from "react-redux"
-import { store } from './';
+import { Provider } from "react-redux";
+import { store } from "./";
+import { useEffect } from "react";
+import { setFavPokemon } from "./pokemon/pokemons";
 
 interface Props {
-    children: React.ReactNode,
+  children: React.ReactNode;
 }
 
 export const Providers = ({ children }: Props) => {
-  return (
-    <Provider store={store}>
-        {children}
-    </Provider>
-  )
-}
+  useEffect(() => {
+    const fav = JSON.parse(localStorage.getItem("favPokemons") ?? "{}");
+
+    store.dispatch(setFavPokemon(fav));
+    // return fav;
+  }, []);
+
+  return <Provider store={store}>{children}</Provider>;
+};

@@ -4,11 +4,11 @@ Curso de Next13 que voy a seguir de Fernando.
 
 Para seguir el curso necesitas saber sobre:
 
-  - React
-  
-  - JavaScript
+- React
 
-  - TypeScript
+- JavaScript
+
+- TypeScript
 
 ## Librerías y componente útiles
 
@@ -19,3 +19,5 @@ Para seguir el curso necesitas saber sobre:
 - [Pokeapi](https://pokeapi.co)
 
 - Instalación en el 02 de [Redux Toolkit](https://redux-toolkit.js.org/tutorials/quick-start) -> **npm install @reduxjs/toolkit react-redux**
+
+- Configuración de Eslint y Prettier [Desarrollo Útil](https://www.youtube.com/watch?v=3BHXuZvI4FI)
