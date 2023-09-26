@@ -1,5 +1,6 @@
 import prisma from '@/app/lib/prisma'
 import { NextResponse } from 'next/server'
+import * as yup from 'yup';
 
 export async function GET(request: Request) { 
 
@@ -24,4 +25,23 @@ export async function GET(request: Request) {
   });
 
   return NextResponse.json(todos);
+}
+
+// después de haber instalado YUP
+const postSchema = yup.object({
+  description: yup.string().required(), // le dices a yup que es de tipo string y que es requerido y si no viene, que se detenga
+  complete: yup.boolean().optional().default(false), // es un boolean, que no es requerido y que por defecto está en false
+})
+
+export async function POST(request: Request) {
+
+  try {
+    const body = await postSchema.validate( await request.json() );
+    
+    const todo = await prisma.todo.create({ data: body })
+  
+    return NextResponse.json(todo)
+  } catch (err) {
+    return NextResponse.json( err, { status: 400 } )
+  }
 }

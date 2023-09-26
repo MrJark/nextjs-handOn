@@ -4,6 +4,8 @@
 
 - Hago un **npx prisma init** para inicializar [prisma](https://vercel.com/guides/nextjs-prisma-postgres)
 
+- Intalación de [Yup](https://www.npmjs.com/package/yup?activeTab=code) **npm i yup**
+
 ## Develop
 
 1. Levantar la base de datos
