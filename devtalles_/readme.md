@@ -21,3 +21,4 @@ Para seguir el curso necesitas saber sobre:
 - Instalación en el 02 de [Redux Toolkit](https://redux-toolkit.js.org/tutorials/quick-start) -> **npm install @reduxjs/toolkit react-redux**
 
 - Configuración de Eslint y Prettier [Desarrollo Útil](https://www.youtube.com/watch?v=3BHXuZvI4FI)
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres"

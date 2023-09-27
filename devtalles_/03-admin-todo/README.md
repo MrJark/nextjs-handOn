@@ -6,15 +6,24 @@
 
 - Intalación de [Yup](https://www.npmjs.com/package/yup?activeTab=code) **npm i yup**
 
+- Instalo los react-icons -> **npm install react-icons --save**
+
 ## Develop
 
 1. Levantar la base de datos
   ```
     docker compose up -d
   ```
-2. Crear y renombrar el .env.template
+2. Crear una copia de .env.template y renombrarlo como .env
 3. Remplazar las variables de entorno por las tuyas propias
-4. Ejecutar el SEED para crear la [base de datos local](localhost:3000/api/seed)
+4. Ejecutar **npm i**
+5. Ejecutar **npm run dev**
+6. Ejecutar los siguientes comandos de prisma:
+  ```
+    npx prisma migrate dev
+    npx prisma generate
+  ```
+7. Ejecutar el SEED para crear la [base de datos local](localhost:3000/api/seed)
 
 ## Prisma Commands
 

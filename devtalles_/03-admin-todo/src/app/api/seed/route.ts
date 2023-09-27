@@ -10,7 +10,7 @@ export async function GET(request: Request) {
   //   data: { description: 'piedra de la mente', complete: true }
   // });
   // console.log(todo);
-  
+
   await prisma.todo.createMany({
     data: [
       { description: 'Piedra del alma', complete: true},
