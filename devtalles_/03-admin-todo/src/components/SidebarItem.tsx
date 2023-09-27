@@ -1,29 +1,36 @@
-import Link from "next/link"
-import { CiBookmarkCheck } from "react-icons/ci"
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { CiBookmarkCheck } from "react-icons/ci";
 
+interface Props {
+  icon: React.ReactNode;
+  path: string;
+  title: string;
+}
 
-export const SidebarItem = () => {
+export const SidebarItem = ({ icon, path, title }: Props) => {
+  const pathName = usePathname();
+
   return (
     <>
-        <ul className="space-y-2 tracking-wide mt-8">
-            {/* TODO: src/components <SidebarItem /> */}
-            {/* Active className: text-white bg-gradient-to-r from-sky-600 to-cyan-400 */}
-            <li>
-              <Link
-                href="/dashboard" 
-                className="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-white bg-gradient-to-r from-sky-600 to-cyan-400"
-                >
-                    <CiBookmarkCheck size={30} />
-                    <span className="-mr-1 font-medium">Dashboard</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/dashboard/rest-todos" className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-                <CiBookmarkCheck size={30} />
-                <span className="group-hover:text-gray-700">Categories</span>
-              </Link>
-            </li>
-          </ul>
+      <li>
+        <Link
+          href={`${path}`}
+          className={`
+                  relative px-4 py-3 flex items-center space-x-4 rounded-xl text-white bg-gradient-to-r from-sky-600 to-cyan-400
+                  ${
+                    path === pathName
+                      ? "text-white bg-gradient-to-r from-sky-600 to-cyan-400"
+                      : ""
+                  }
+                `}
+        >
+          {/* <CiBookmarkCheck size={30} /> */}
+          {icon}
+          <span className="-mr-1 font-medium">{title}</span>
+        </Link>
+      </li>
     </>
-  )
-}
+  );
+};
