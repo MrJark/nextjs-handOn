@@ -1,7 +1,7 @@
 // 'use client'
 
 import prisma from "@/app/lib/prisma";
-import { TodosGrid } from "@/todos";
+import { NewTodo, TodosGrid } from "@/todos";
 
 
 // si está el use client arriba, los metas no funcionan y pierde efectividad a la hora de ranckear
@@ -25,8 +25,9 @@ export default async function RestTodoPage() {
 
   return (
     <div>
-      <h1> Page Todo</h1>
-      {/* { JSON.stringify( todos ) } */}
+      <div className="w-full px-5 mx-5 mb-5">
+        <NewTodo />
+      </div>
       <TodosGrid todos={todos}/>
     </div>
   );
