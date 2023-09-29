@@ -6,6 +6,7 @@ import { TodoItem } from './TodoItem'
 // import * as todosApi from '@/todos/helpers/todos'
 import { toggleTodo } from '@/todos/actions/todoActions';
 import { useRouter } from 'next/navigation'; //! Ojo Tiene que ser del next/navigation y no del next/router ya que este último es de versiones anteriores a la 13
+import { TodoItemExperimental } from './TodoItemExperimental';
 
 interface Props {
     todos?: Todo[], // viene de prisma el Todo como interfaz
@@ -27,7 +28,8 @@ export const TodosGrid = ({ todos = [] }: Props) => {
         <div className='grid grid-cols-1 sm:grid-cols-3 gap-2'>
             {
                 todos.map( item => (
-                    <TodoItem key={item.id} todo={item} toggleTodo={ toggleTodo }/>
+                    // <TodoItem key={item.id} todo={item} toggleTodo={ toggleTodo }/>
+                    <TodoItemExperimental key={item.id} todo={item} toggleTodo={ toggleTodo }/>
                 ))
             }
         </div>
