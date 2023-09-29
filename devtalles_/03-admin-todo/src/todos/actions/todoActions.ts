@@ -5,7 +5,19 @@ import { Todo } from "@prisma/client"
 import { revalidatePath } from "next/cache";
 
 
+// funión para relentizar las llamdas y probar
+const sleep = ( s: number = 0 ): Promise<boolean> => {
+  return new Promise( (resolve) => {
+    setTimeout( () => {
+      resolve(true)
+    }, s * 1000 )
+  })
+};
+
+
 export const toggleTodo = async ( id: string, complete: boolean ): Promise<Todo> => {
+
+  await sleep(3);
 
   const todo = await prisma.todo.findFirst({ where: { id }})
 
