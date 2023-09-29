@@ -1,4 +1,5 @@
 // 'use client'
+export const dynamic = 'force-dynamic'; // esto es para decirle a Next que el caché sea dinámico, es decir, que busque en el store pero que también haga las peticiones
 
 import prisma from "@/app/lib/prisma";
 import { NewTodo, TodosGrid } from "@/todos";

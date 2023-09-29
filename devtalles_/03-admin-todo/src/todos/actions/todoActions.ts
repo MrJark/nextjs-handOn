@@ -27,6 +27,7 @@ export const toggleTodo = async ( id: string, complete: boolean ): Promise<Todo>
 
   const updatedTodo = await prisma.todo.update({ where: {id}, data: {complete} });
 
+  // técnicamente en las optimistics no es necesario hacer el revalidatePath pero para no pillarte los dedos, puedes usarlo
   revalidatePath('/dashboard/server-todos'); // necesitas colocar esta linea para que se actialice el navegador, esa página,y la ruta a la cual queires que vaya
   return updatedTodo;
 };
