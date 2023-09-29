@@ -24,8 +24,8 @@ export default async function RestTodosPage() {
   
 
   return (
-    <div>
-      <span className="text-xl text-red-500 font-bold">Server Actions (Alpha)</span>
+    <div className="text-center grid">
+      <span className="w-full text-2xl text-red-500 font-bold mb-4">Server Actions (Alpha)</span>
       <div className="w-full px-5 mx-5 mb-5">
         <NewTodo />
       </div>

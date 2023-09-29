@@ -1,15 +1,17 @@
 'use client'
 
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { IoTrashOutline } from 'react-icons/io5';
 
 import * as todosApi from '@/todos/helpers/todos';
-import { useRouter } from 'next/navigation'; // del next/navigation
+// import { useRouter } from 'next/navigation'; // del next/navigation
+
+// server action
+import { createTodo, deletedCompleted } from '@/todos/actions/todoActions';
 
 export const NewTodo = () => {
 
-
-  const router = useRouter();
+  // const router = useRouter(); // puedo eliminar esta línea, y por tanto tdoas sus llamadas gracias al server action
   const [description, setDescription] = useState('');
 
   const onSubmit = async (e: FormEvent) => {
@@ -17,18 +19,19 @@ export const NewTodo = () => {
     if( description.trim().length === 0 ) return;
 
     // console.log(description);
-    todosApi.createTodo(description);
+    // await todosApi.createTodo(description); // sustituyo esta línea por el server action
+
+    await createTodo(description); // server action
+    
     setDescription('');
-
-    router.refresh();
+    // router.refresh();
   }
 
-  const [deletedTodo, setDeletedTodo] = useState()
-  const deleteCompleted = async () => {
-    await todosApi.deleteCompletedTodo()
+  // const deleteCompleted = async () => { // para hacer el server action no me hace falta esta función
+  //   await todosApi.deleteCompletedTodo()
 
-    router.refresh();
-  }
+  //   // router.refresh();
+  // }
 
   return (
     <form
@@ -52,7 +55,7 @@ export const NewTodo = () => {
       <span className="flex flex-1"></span>
 
       <button
-        onClick={ () => deleteCompleted() }
+        onClick={ () => deletedCompleted() }
         type="button"
         className="flex items-center justify-center rounded ml-2 bg-red-400 p-2 text-white hover:bg-red-700 transition-all"
       >

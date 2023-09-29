@@ -18,4 +18,6 @@ Un repo donde voy a ir haciendo proyectos para practicar el framework de React, 
 
 - Configuración de Eslint y Prettier [Desarrollo Útil](https://www.youtube.com/watch?v=3BHXuZvI4FI)
 
--
+- Los componentes que sean `'use client'` **NO** pueden ser _[Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/forms-and-mutations#how-server-actions-work)_. Los server actions permiten evitar crear los API endpoints
+
+- 
