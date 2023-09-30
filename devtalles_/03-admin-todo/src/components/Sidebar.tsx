@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CiLogout } from "react-icons/ci";
 import { LiaCookieSolid } from "react-icons/lia";
 import {
+  IoBasketball,
   IoCalendarOutline,
   IoCheckboxOutline,
   IoListOutline,
@@ -30,6 +31,11 @@ const menuItems = [
     icon: <LiaCookieSolid />,
     title: "Cookies",
     path: "/dashboard/cookies",
+  },
+  {
+    icon: <IoBasketball />,
+    title: "Products",
+    path: "/dashboard/products",
   },
 ];
 
