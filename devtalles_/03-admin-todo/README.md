@@ -20,7 +20,7 @@
 3. Remplazar las variables de entorno por las tuyas propias
 4. Ejecutar **npm i**
 5. Ejecutar **npm run dev**
-6. Ejecutar los siguientes comandos de prisma:
+6. Ejecutar los siguientes comandos de prisma para la migración:
 
 ```
   npx prisma migrate dev
