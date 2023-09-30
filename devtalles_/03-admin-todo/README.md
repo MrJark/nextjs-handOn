@@ -8,6 +8,8 @@
 
 - Instalo los react-icons -> **npm install react-icons --save**
 
+- Para trabajar con las cookies con next en el client side, lo más sencillo es instalar [cookies-next](https://www.npmjs.com/package/cookies-next)
+
 ## Develop
 
 1. Tener Docker Desktop arriba y levantar la base de datos con:
