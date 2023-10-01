@@ -35,18 +35,23 @@ export const addProductToCart = (id: string) => {
   setCookie('cart', JSON.stringify(cookieCart));
 };
 
-//* Task: hacer que el remove funcione al dar al btn ✅ ( no pedia hacerlo de uno en uno pero lo hice)
+//* Task 1: hacer que el remove funcione al dar al btn ✅ ( no pedia hacerlo de uno en uno pero lo hice)
+//* Task 2: eliminar de uno en uno los elementos ✅( lo he hecho antes 🥲 pero me ha faltado eliminar la cookie, he borrado los elementos pero la cookie se mantenia pero en cantidad 0)
 export const removeProductCart = (id: string) => {
   const cookieCart = getCookieCart(); // 1º coges la cookie
 
-  if (cookieCart[id]) {
+  if ( cookieCart[id] > 0 ) {
     cookieCart[id]-- // eliminas el item
+  } 
+  if (cookieCart[id] <= 0) {
+    delete cookieCart[id]
   }
+  // Debería poder ponerlo como else if pero no me respondo por tanto, lo he puesto como dos if distintos
 
   setCookie('cart', JSON.stringify(cookieCart))
 }
 
-// resolución de su task
+// resolución de su task1
 export const removeAllProductCartbyID = (id: string) => {
   const cookieCart = getCookieCart();
   delete cookieCart[id]
