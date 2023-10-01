@@ -1,7 +1,8 @@
 "use client";
 
-import { setCookie } from "cookies-next"; //! SOLO se puede desde el client side
-import { useState } from "react";
+import {setCookie} from "cookies-next"; //! SOLO se puede desde el client side
+import {useRouter} from "next/navigation";
+import {useState} from "react";
 
 // https://tailwindcomponents.com/component/radio-buttons-1
 
@@ -19,10 +20,12 @@ export const TabBar = ({
   tabOptions = [1, 2, 3, 4, 5],
 }: Props) => {
   const [selected, setSelected] = useState(currentTab);
+  const router = useRouter();
 
   const onTabSelected = (tab: number) => {
     setSelected(tab);
     setCookie("selectedTab", tab.toString()); // para tener la cookie
+    router.refresh();
   };
 
   return (
@@ -31,8 +34,7 @@ export const TabBar = ({
       grid w-full space-x-2 rounded-xl bg-gray-200 p-2
       grid-cols-${length}
       ${"grid-cols-" + length}
-    `}
-    >
+    `}>
       {tabOptions.map((n) => (
         <div key={n}>
           <input
@@ -44,8 +46,7 @@ export const TabBar = ({
           />
           <label
             onClick={() => onTabSelected(n)}
-            className="transition-all block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white"
-          >
+            className="transition-all block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-blue-500 peer-checked:font-bold peer-checked:text-white">
             {n}
           </label>
         </div>
