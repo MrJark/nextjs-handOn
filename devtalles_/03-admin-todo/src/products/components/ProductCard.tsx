@@ -6,6 +6,7 @@ import { IoAddCircleOutline, IoTrashOutline } from "react-icons/io5";
 import { StarSVG } from "./Star";
 import {
   addProductToCart,
+  removeAllProductCartbyID,
   removeProductCart,
 } from "@/shopping-cart/actions/actions";
 import { useRouter } from "next/navigation";
@@ -26,10 +27,17 @@ export const ProductCard = ({ id, image, name, price, rating }: Props) => {
     router.refresh();
   };
 
+  // como la hice yo
   const onDeleteToCart = () => {
     removeProductCart(id);
     router.refresh();
   };
+
+  // como 'debería' haberse hecho la tarea
+  // const onDeleteAllItemsToCartbyID = () => {
+  //   removeAllProductCartbyID(id);
+  //   router.refresh();
+  // };
 
   return (
     <div className="bg-white shadow rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-100">

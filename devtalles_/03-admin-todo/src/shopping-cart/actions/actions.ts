@@ -35,13 +35,22 @@ export const addProductToCart = (id: string) => {
   setCookie('cart', JSON.stringify(cookieCart));
 };
 
-//* Task: hacer que el remove funcione al dar al btn ✅
+//* Task: hacer que el remove funcione al dar al btn ✅ ( no pedia hacerlo de uno en uno pero lo hice)
 export const removeProductCart = (id: string) => {
   const cookieCart = getCookieCart(); // 1º coges la cookie
 
   if (cookieCart[id]) {
-    cookieCart[id]--
+    cookieCart[id]-- // eliminas el item
   }
 
   setCookie('cart', JSON.stringify(cookieCart))
 }
+
+// resolución de su task
+export const removeAllProductCartbyID = (id: string) => {
+  const cookieCart = getCookieCart();
+  delete cookieCart[id]
+
+  setCookie('cart', JSON.stringify(cookieCart))
+}
+
