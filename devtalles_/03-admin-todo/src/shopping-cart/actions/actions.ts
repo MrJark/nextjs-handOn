@@ -13,19 +13,19 @@ import { getCookie, hasCookie, setCookie } from "cookies-next"
   }
 */
 
-export const getCookieCart = ():{ [id: string]: number } => {
+export const getCookieCart = (): { [id: string]: number } => {
   if (hasCookie('cart')) {
-    const cookieCart = JSON.parse( getCookie('cart') as string ?? '{}')
+    const cookieCart = JSON.parse(getCookie('cart') as string ?? '{}')
     return cookieCart;
   }
 
-  return{};
+  return {};
 };
 
-export const addProductToCart = ( id: string ) => {
+export const addProductToCart = (id: string) => {
   const cookieCart = getCookieCart(); // -> apunta a un número, por tanto se pueden hacer operaciones
 
-  if( cookieCart[id] ) {
+  if (cookieCart[id]) {
     cookieCart[id] = cookieCart[id] + 1;
     // cookieCart[id] =+ 1; de esta forma también sería correcto
   } else {
@@ -34,3 +34,14 @@ export const addProductToCart = ( id: string ) => {
 
   setCookie('cart', JSON.stringify(cookieCart));
 };
+
+//* Task: hacer que el remove funcione al dar al btn ✅
+export const removeProductCart = (id: string) => {
+  const cookieCart = getCookieCart(); // 1º coges la cookie
+
+  if (cookieCart[id]) {
+    cookieCart[id]--
+  }
+
+  setCookie('cart', JSON.stringify(cookieCart))
+}
