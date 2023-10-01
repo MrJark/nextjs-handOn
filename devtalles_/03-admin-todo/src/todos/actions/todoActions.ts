@@ -5,7 +5,7 @@ import { Todo } from "@prisma/client"
 import { revalidatePath } from "next/cache";
 
 
-// funión para relentizar las llamdas y probar
+// funión para relentizar las llamdas y probar el efecto inmediato en la UI pero el delay del backend
 const sleep = ( s: number = 0 ): Promise<boolean> => {
   return new Promise( (resolve) => {
     setTimeout( () => {
@@ -17,7 +17,7 @@ const sleep = ( s: number = 0 ): Promise<boolean> => {
 
 export const toggleTodo = async ( id: string, complete: boolean ): Promise<Todo> => {
 
-  await sleep(3);
+  // await sleep(3); // para que no vaya lento lo comento
 
   const todo = await prisma.todo.findFirst({ where: { id }})
 

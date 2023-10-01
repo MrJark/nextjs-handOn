@@ -6,6 +6,8 @@ import { useState } from "react";
 // https://tailwindcomponents.com/component/radio-buttons-1
 
 const tabOptions = [1, 2, 3, 4, 5];
+const length = tabOptions.length; // a veces con la opción de tabOptions.length no funciona
+console.log(length);
 
 interface Props {
   currentTab?: number;
@@ -14,7 +16,7 @@ interface Props {
 
 export const TabBar = ({
   currentTab = 1,
-  tabOptions = [1, 2, 3, 4],
+  tabOptions = [1, 2, 3, 4, 5],
 }: Props) => {
   const [selected, setSelected] = useState(currentTab);
 
@@ -27,7 +29,8 @@ export const TabBar = ({
     <div
       className={`
       grid w-full space-x-2 rounded-xl bg-gray-200 p-2
-      grid-cols-${tabOptions.length}
+      grid-cols-${length}
+      ${"grid-cols-" + length}
     `}
     >
       {tabOptions.map((n) => (
