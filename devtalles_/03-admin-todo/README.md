@@ -10,6 +10,8 @@
 
 - Para trabajar con las cookies con next en el client side, lo más sencillo es instalar [cookies-next](https://www.npmjs.com/package/cookies-next)
 
+- Para las authentications voy a usar [Auth.js](https://authjs.dev) **npm install next-auth** pero también se puede con Auth0, etcx
+
 ## Develop
 
 1. Tener Docker Desktop arriba y levantar la base de datos con:
