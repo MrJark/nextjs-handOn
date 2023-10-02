@@ -1,15 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CiLogout } from "react-icons/ci";
-import { LiaCookieSolid } from "react-icons/lia";
+import {CiLogout} from "react-icons/ci";
+import {LiaCookieSolid} from "react-icons/lia";
 import {
   IoBasketball,
   IoCalendarOutline,
   IoCheckboxOutline,
   IoListOutline,
 } from "react-icons/io5";
-import { SidebarItem } from ".";
+import {SidebarItem} from ".";
 import path from "path";
+import {getServerSession} from "next-auth";
+import {authOptions} from "@/app/api/auth/[...nextauth]/route";
+import {redirect} from "next/navigation";
 
 const menuItems = [
   {
@@ -39,7 +42,22 @@ const menuItems = [
   },
 ];
 
-export const Sidebar = () => {
+export async function Sidebar() {
+  //* Task: tener la sesión en el sidebar a través del auth de github ✅
+  const session = await getServerSession(authOptions); // para recuperar la sesión del userç
+
+  if (!session) {
+    redirect("/api/auth/signin");
+  }
+  const {user} = session;
+
+  // Voy a hacer las validaciones por si los usuarios tienen o no una image, un nombre y un rol
+  const avatarURL = user?.image
+    ? session.user?.image
+    : "https://unavatar.io/microlink/microlink.io";
+  const userName = user?.name?.toLowerCase() ?? "No name";
+  // const userROLE = "";
+
   return (
     <>
       {/* TODO: src/components <Sidebar /> */}
@@ -62,14 +80,15 @@ export const Sidebar = () => {
           <div className="mt-8 text-center">
             {/* Next/Image */}
             <Image
-              src="https://unavatar.io/github/mrjark"
-              alt=""
-              className="w-10 h-10 m-auto rounded-full object-cover lg:w-16 lg:h-16"
-              width={24}
-              height={24}
+              // src={`${user?.image}`}
+              src={avatarURL!}
+              alt="mrjark picture"
+              className="w-12 h-12 m-auto rounded-full object-cover lg:w-16 lg:h-16"
+              width={26}
+              height={26}
             />
-            <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">
-              Cynthia J. Watts
+            <h5 className="hidden mt-4 text-2xl tracking-wider font-semibold text-gray-600 lg:block">
+              {userName}
             </h5>
             <span className="hidden text-gray-400 lg:block">Admin</span>
           </div>
@@ -89,4 +108,4 @@ export const Sidebar = () => {
       </aside>
     </>
   );
-};
+}
