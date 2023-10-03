@@ -8,7 +8,7 @@ import {useState} from "react";
 
 const tabOptions = [1, 2, 3, 4, 5];
 const length = tabOptions.length; // a veces con la opción de tabOptions.length no funciona
-console.log(length);
+// console.log(length);
 
 interface Props {
   currentTab?: number;
