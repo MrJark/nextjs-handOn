@@ -1,9 +1,11 @@
+import prisma from "@/app/lib/prisma";
+import { PrismaAdapter } from "@auth/prisma-adapter";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 
-
 export const authOptions: NextAuthOptions = {
+  adapter: PrismaAdapter(prisma),
   providers: [
     // dependiendo del orde en que coloques en el arreglo los provaiders apareceran en la pantalla
     GoogleProvider({
@@ -19,4 +21,5 @@ export const authOptions: NextAuthOptions = {
 }
 
 const handler = NextAuth(authOptions);
-export { handler as GET,  handler as POST};
+export { handler as GET,  handler as POST}
+

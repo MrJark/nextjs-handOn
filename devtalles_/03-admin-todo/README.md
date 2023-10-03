@@ -12,6 +12,15 @@
 
 - Para las authentications voy a usar [Auth.js](https://authjs.dev) **npm install next-auth** pero también se puede con Auth0, etcx
 
+- Para el **auth/prisma-adapter** voy a estar usando la siguiente [información](https://authjs.dev/reference/adapter/prisma).
+
+  Para instalarlo voy a hacer con los siguientes comandos:
+
+  ```
+  npm install @prisma/client @auth/prisma-adapter
+  npm install prisma --save-dev
+  ```
+
 ## Develop
 
 1. Tener Docker Desktop arriba y levantar la base de datos con:
