@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {CiLogout} from "react-icons/ci";
+import {CgProfile} from "react-icons/cg";
 import {LiaCookieSolid} from "react-icons/lia";
 import {
   IoBasketball,
@@ -39,6 +40,11 @@ const menuItems = [
     icon: <IoBasketball />,
     title: "Products",
     path: "/dashboard/products",
+  },
+  {
+    icon: <CgProfile />,
+    title: "Profiles",
+    path: "/dashboard/profile",
   },
 ];
 
