@@ -62,8 +62,7 @@ export async function Sidebar() {
     ? session.user?.image
     : "https://unavatar.io/microlink/microlink.io";
   const userName = user?.name?.toLowerCase() ?? "No name";
-  // const userROLE = "";
-
+  const userROLE = session.user?.roles ?? "User";
   return (
     <>
       {/* TODO: src/components <Sidebar /> */}
@@ -96,7 +95,7 @@ export async function Sidebar() {
             <h5 className="hidden mt-4 text-2xl tracking-wider font-semibold text-gray-600 lg:block">
               {userName}
             </h5>
-            <span className="hidden text-gray-400 lg:block">Admin</span>
+            <span className="hidden text-gray-400 lg:block">{userROLE}</span>
           </div>
           <ul className="space-y-2 tracking-wide mt-8">
             {menuItems.map((item) => (

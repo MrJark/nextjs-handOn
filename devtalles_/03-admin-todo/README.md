@@ -21,6 +21,8 @@
   npm install prisma --save-dev
   ```
 
+- Para crear las constraseñas encriptadas del los usuarios logeados con el email, voy a usar [bcryptjs](https://www.npmjs.com/package/bcryptjs) y como uso TS en el proyecto, necesito los typados -> **npm i --save-dev @types/bcryptjs**
+
 ## Develop
 
 1. Tener Docker Desktop arriba y levantar la base de datos con:
