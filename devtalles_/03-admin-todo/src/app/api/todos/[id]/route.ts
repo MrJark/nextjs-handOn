@@ -1,6 +1,7 @@
 import prisma from '@/app/lib/prisma';
+import { getUserSessionServer } from '@/auth/actions/authActions';
 import { Todo } from '@prisma/client';
-import { NextResponse, NextRequest } from 'next/server'
+import { NextResponse } from 'next/server'
 import * as yup from 'yup';
 
 interface Segments { // estos segmentos aunque pongas number, serán string porque son parte de la url
@@ -11,8 +12,17 @@ interface Segments { // estos segmentos aunque pongas number, serán string porq
 
 // para no repetir el código y centralizar
 const getTodo = async ( id: string ): Promise< Todo | null > => {
+
+  const user = await getUserSessionServer();
+  if (!user) {
+    return null;
+  }
   
   const todo = await prisma.todo.findFirst({ where: { id: id } });
+
+  if( todo?.userId !== user.id ) {
+    return null;
+  }
 
   return todo;
 }
