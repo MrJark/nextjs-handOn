@@ -44,6 +44,13 @@
 
 7. Ejecutar el SEED para crear la [base de datos local](localhost:3000/api/seed)
 
+## Nota:
+
+Usuario por defecto:
+
+- user: 'test1@google.com'
+- password: '123456'
+
 ## Prisma Commands
 
 - `npx prisma init` para unicializar prisma

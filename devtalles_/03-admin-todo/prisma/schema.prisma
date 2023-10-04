@@ -13,6 +13,9 @@ model Todo {
   complete    Boolean  @default(false)
   createdAt   DateTime @default(now())
   updateAt    DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id]) // * pero los todos solo pueden tener un único usuario
+  userId String
 }
 
 // Authjs
@@ -56,6 +59,8 @@ model User {
 
   accounts Account[]
   sessions Session[]
+
+  todos Todo[] // el user puede tener muchos todos * (https://www.prisma.io/docs/concepts/components/prisma-schema/relations)
 }
 
 model VerificationToken {
