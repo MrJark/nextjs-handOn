@@ -8,7 +8,7 @@ Ecommerce de cabeza a pies con artículos ficticios de Tesla para practicar el n
 
 ## Dependencias e Instalaciones
 
-* 
+* Para los icons voy a usar [React Icons](https://react-icons.github.io/react-icons/) a través de `npm install react-icons --save`
 
 ## Comentarios útiles
 
