@@ -1,22 +1,47 @@
 'use client' // por culpa del boton de Io
 
+import { useUIStore } from "@/store"
+import clsx from "clsx"
 import Link from "next/link"
 import { IoCloseOutline, IoLogInOutline, IoLogOutOutline, IoPeopleOutline, IoPersonOutline, IoSearchOutline, IoShirtOutline, IoTicketOutline } from "react-icons/io5"
 
 
 export const SiderBar = () => {
+
+  // las dos líneas estas son el manejador de estado
+  const isSideMenuOpen = useUIStore( state => state.isSideMenuOpen)
+  const closeMenu = useUIStore( state => state.closeSideMenu)
+
   return (
     <div>
       {/* Div to background */}
-      <div className="fixed top-0 left-0 w-screen h-screen z-10 bg-white opacity-30" />
+      {
+        isSideMenuOpen && (
+          <div className="fixed top-0 left-0 w-screen h-screen z-10 bg-white opacity-30" />
+          )
+        }
+      {/* <div className="fixed top-0 left-0 w-screen h-screen z-10 bg-white opacity-30" /> */}
 
       {/* Div to Blur */}
-      <div className="fade-in fixed top-0 left-0 w-screen h-screen z-10 backdrop-filter backdrop-blur-sm"/>
+      {
+        isSideMenuOpen && (
+          <div className="fade-in fixed top-0 left-0 w-screen h-screen z-10 backdrop-filter backdrop-blur-sm"/>
+        )
+      }
+      {/* <div className="fade-in fixed top-0 left-0 w-screen h-screen z-10 backdrop-filter backdrop-blur-sm"/> */}
 
       {/* Sidemenu */}
       <nav 
-        //todo: efecto slide
-        className="fixed p-5 right-0 top-0 w-[400px] h-[750px] rounded-bl-xl bg-black text-white shadow-2xl z-20 transform transition-all duration-300"
+        // className="fixed p-5 right-0 top-0 w-[400px] h-[750px] rounded-bl-xl bg-black text-white shadow-2xl z-20 transform transition-all duration-300"
+        // gracias a clsx puedes hacer lo siguiente:
+        className={
+          clsx(
+            "fixed p-5 right-0 top-0 w-[400px] h-[750px] rounded-bl-xl bg-black text-white shadow-2xl z-20 transform transition-all duration-300",
+            {
+              "translate-x-full": !isSideMenuOpen
+            }
+          )
+        }
       >
         <IoCloseOutline 
           size={30} 
