@@ -4,10 +4,14 @@ import Link from 'next/link'
 
 export const PageNotFound = () => {
   return (
-    <div className='flex flex-col h-[800px] w-full justify-center items-center align-middle'>
+    <div className='flex flex-col sm:h-[900px] w-full justify-center items-center align-middle'>
       <div className='text-center px-5 mx-5 py-5'>
         <h2 className={ `${titleFont.className} antialiased text-9xl` }>404</h2>
         <p className='font-semibold text-xl'>Whoops! Something is wrong</p>
+        <p className='font-light text-xl'>
+          <span>You can return to </span>
+          <Link className='font-normal hover:underline hover:text-2xl hover:text-blue-400 transition-all' href='/'>Home</Link>
+        </p>
       </div>
       <div className='px-5 mx-5'>
         <Image 
@@ -17,12 +21,6 @@ export const PageNotFound = () => {
           width={500}
           height={500}
         />
-      </div>
-      <div className='text-center px-5 mx-5 py-5'>
-        <p className='font-light text-xl'>
-          <span>You can return to </span>
-          <Link className='font-normal hover:underline hover:text-2xl hover:text-blue-400 transition-all' href='/'>Home</Link>
-        </p>
       </div>
     </div>
   )

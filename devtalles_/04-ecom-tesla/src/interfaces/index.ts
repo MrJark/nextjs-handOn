@@ -1,2 +1,2 @@
 
-export type { Product, ValidSizes, ValidTypes } from './product.interface'
+export type { Product, Size as ValidSizes, Types as ValidTypes } from './product.interface'
