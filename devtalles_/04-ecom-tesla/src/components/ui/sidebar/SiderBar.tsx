@@ -1,4 +1,5 @@
-'use client' // por culpa del boton de Io
+'use client' 
+// por culpa del boton de Io
 
 import { useUIStore } from "@/store"
 import clsx from "clsx"
@@ -36,7 +37,7 @@ export const SiderBar = () => {
         // gracias a clsx puedes hacer lo siguiente:
         className={
           clsx(
-            "fixed p-5 right-0 top-0 w-[400px] h-[750px] rounded-bl-xl bg-black text-white shadow-2xl z-20 transform transition-all duration-300",
+            "fixed p-5 right-0 top-0 w-[400px] h-[800px] rounded-bl-xl bg-black text-white shadow-2xl z-20 transform transition-all duration-300",
             {
               "translate-x-full": !isSideMenuOpen
             }
@@ -45,7 +46,7 @@ export const SiderBar = () => {
       >
         <IoCloseOutline 
           size={30} 
-          onClick={ () => console.log('click')}
+          onClick={ () => closeMenu()}
           className='absolute right-5 cursor-pointer transition-all duration-300 hover:rotate-90 z-10'
         />
         {/* Search Input */}
