@@ -4,6 +4,8 @@ Proyecto de [Midudev](https://www.youtube.com/watch?v=Mhk78pRLHeo&t=313s) donde 
 
 ## Importanciones y dependencias
 
-* Prettier como dependencia de desarrollo `npm add prettier -D`
+- Prettier como dependencia de desarrollo `npm add prettier -D`
+
+- Instalo [Shadcn/ui para Next](https://ui.shadcn.com/docs/installation/next) con `npx shadcn-ui@latest init`
 
 ## Comentarios y apostes interesantes
