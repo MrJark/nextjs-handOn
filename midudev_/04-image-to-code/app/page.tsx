@@ -17,7 +17,10 @@ export default function Home() {
 					<a href="https://mrjark.com" target="_blank" className="text-[#4fe5b8]">
 						mrjark
 					</a>{' '}
-					with midudev
+					with{' '}
+					<a href="https://www.youtube.com/watch?v=Mhk78pRLHeo&t=313s" target="_blank" className="text-[#09f]">
+						midudev
+					</a>
 				</footer>
 			</aside>
 			<main className="bg-gray-900">

@@ -7,7 +7,6 @@ import { Button } from './ui/button'
 export const Form = () => {
 	return (
 		<form
-			className="flex flex-col gap-6"
 			onSubmit={(event) => {
 				event.preventDefault()
 				const form = event.currentTarget as HTMLFormElement
@@ -17,10 +16,10 @@ export const Form = () => {
 			}}
 			action=""
 		>
-			<Label htmlFor="url">
+			<Label htmlFor="url" className="flex flex-col gap-4">
 				Add your image url
 				<Input name="url" id="url" type="url" placeholder="https://tu-screenshot/image.jpg" />
-				<Button>Generate code</Button>
+				<Button className="w-1/3">Generate code</Button>
 			</Label>
 		</form>
 	)
