@@ -13,7 +13,7 @@ import { USER_PROMPT, SYSTEM_PROMPT } from '@/components/variables/variables';
 // const USER_PROMPT = 'Generate code for a web page that looks exactly like this and meke it step by step'
 
 const openai = new OpenAI({ // inicializo el cliente de opneAI
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_TOKEN,
 });
 
 export const runtime = 'edge';// esto es donde se va a ejecutar la api en vercel. Puede ser en el edge( servidores mas cerca del usuario y así que vaya más rápìdo ) o en el cloud ( este es más barato pero también es más lento)
@@ -25,6 +25,7 @@ export async function POST(req: Request) {
   const response = await openai.chat.completions.create({
     // model: 'gpt-4',
     model: 'gpt-4-vision-preview',
+    max_tokens: 4096, // por default solo devuelve 40
     stream: true, // estoi es para que los datos los vaya recibiendo poco a poco con forme los tiene. Sino la UX sería mala porque tendría que esperar a que los tuviera todos para mandar la respuesta. Es una especie de lazy load pero con forme tiene la api los datos
     // messages,
     messages: [

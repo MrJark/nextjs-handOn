@@ -4,7 +4,7 @@ import { Label } from '@radix-ui/react-label'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
 
-export const Form = () => {
+export const Form = ({ transformUrlIntoCode }: { transformUrlIntoCode: (url: string) => void }) => {
 	return (
 		<form
 			onSubmit={(event) => {
@@ -12,7 +12,8 @@ export const Form = () => {
 				const form = event.currentTarget as HTMLFormElement
 				const url = form.elements.namedItem('url') as HTMLInputElement
 
-				console.log(url.value)
+				// console.log(url.value)
+				transformUrlIntoCode(url.value)
 			}}
 			action=""
 		>
