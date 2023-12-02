@@ -20,7 +20,7 @@ export const Form = ({ transformUrlIntoCode }: { transformUrlIntoCode: (url: str
 			<Label htmlFor="url" className="flex flex-col gap-4">
 				Add your image url
 				<Input name="url" id="url" type="url" placeholder="https://tu-screenshot/image.jpg" />
-				<Button className="w-1/3">Generate code</Button>
+				<Button className="w-1/4 self-center">Generate code</Button>
 			</Label>
 		</form>
 	)

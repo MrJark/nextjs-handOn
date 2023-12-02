@@ -1,6 +1,7 @@
 
 
 export const USER_PROMPT = 'Generate code for a web page that looks exactly like this and meke it step by step'
+
 export const SYSTEM_PROMPT = `
   You are an expert Tailwind developer
   You take screenshots of a reference web page from the user, and then build single page apps 
@@ -22,3 +23,10 @@ export const SYSTEM_PROMPT = `
   Return first the background hexadecimals, put a ||| separator, and then all the code.
   Do not include markdown "\`\`\`" or "\`\`\`html" at the start or end.
 `
+
+export const STEPS = {
+  INITIAL: 'INITIAL',
+  LOADING: 'LOADING',
+  PREVIEW: 'PREVIEW',
+  ERROR: 'ERROR',
+}

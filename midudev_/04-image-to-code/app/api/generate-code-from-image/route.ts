@@ -16,7 +16,7 @@ const openai = new OpenAI({ // inicializo el cliente de opneAI
   apiKey: process.env.OPENAI_API_TOKEN,
 });
 
-export const runtime = 'edge';// esto es donde se va a ejecutar la api en vercel. Puede ser en el edge( servidores mas cerca del usuario y así que vaya más rápìdo ) o en el cloud ( este es más barato pero también es más lento)
+export const runtime = 'edge'// esto es donde se va a ejecutar la api en vercel. Puede ser en el edge( servidores mas cerca del usuario y así que vaya más rápìdo ) o en el cloud ( este es más barato pero también es más lento)
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     messages: [
       {
         role: 'system',
-        content: 'Now I do it' // he aquí el problema porque es donde tienes que ser un buen prompt engineering para decirle EXACTAMENTE lo que queires que haga
+        content: SYSTEM_PROMPT // he aquí el problema porque es donde tienes que ser un buen prompt engineering para decirle EXACTAMENTE lo que queires que haga
       },
       {
         role: 'user',
