@@ -6,6 +6,16 @@ import { STEPS } from '../components/variables/variables'
 import { Spinner } from '@/components/Spinner'
 import { DragandDrop } from '@/components/DragandDrop'
 
+// para transfromar a base 64
+const toBase64 = (file: File) => {
+	return new Promise<string>((resolve, reject) => {
+		const reader = new FileReader()
+		reader.readAsDataURL(file)
+		reader.onload = () => resolve(reader.result as string)
+		reader.onerror = (error) => reject(error)
+	})
+}
+
 async function* streamReader(res: Response) {
 	const reader = res.body?.getReader()
 	const decoder = new TextDecoder()
@@ -24,11 +34,13 @@ export default function Home() {
 	const [result, setResult] = useState('') // para guardar los estados del prompt devuelto
 	const [step, setStep] = useState(STEPS.INITIAL)
 
-	const transformUrlIntoCode = async (url: string) => {
+	const transformToCode = async (body: string) => {
+		// método para abstracción
+		// he copiado todo lo de transformUrlIntoCode pero cambiando el body por el body proque esta parte serála del draganddrop
 		setStep(STEPS.LOADING)
 		const res = await fetch('/api/generate-code-from-image', {
 			method: 'POST',
-			body: JSON.stringify({ url }),
+			body,
 			headers: {
 				'Content-Type': 'aplication/json',
 			},
@@ -42,24 +54,51 @@ export default function Home() {
 
 		setStep(STEPS.PREVIEW)
 
-		// // leer el streaming de datos 👇🏼 ( lo refacturo con funcion generativa)
-		// //1. crear un reader
-		// const reader = res.body.getReader()
-		// //2. Creas un decodificador para los textos
-		// const decoder = new TextDecoder()
-		// // 3. lees los datos con un loop infinito y solo parará cunado el reader te diga que ha acabado
-		// // if (reader == null) return
-		// while (true) {
-		// 	const { done, value } = await reader.read()
-		// 	const chunk = decoder.decode(value) // los chunks son las distintas partes del código, las piezas
-		// 	// console.log(chunk)
-		// 	setResult((prevResult) => prevResult + chunk)
-		// 	if (done) break // aquí se para cuando acabe para que no se haga infinito
-		// }
 		for await (const chunk of streamReader(res)) {
-			// para iterar con los chunk
 			setResult((prev) => prev + chunk)
 		}
+	}
+
+	const transformImageToCode = async (file: File) => {
+		const img = await toBase64(file)
+		await transformToCode(JSON.stringify({ img }))
+	}
+
+	const transformUrlIntoCode = async (url: string) => {
+		// lo puedo comentar todo porque he creado una abstracción que es transformToCode y solo cambia el elemento que le tengo que pasar. En este caso es la url y en el drag es la img
+		await transformToCode(JSON.stringify({ url }))
+		// setStep(STEPS.LOADING)
+		// const res = await fetch('/api/generate-code-from-image', {
+		// 	method: 'POST',
+		// 	body: JSON.stringify({ url }),
+		// 	headers: {
+		// 		'Content-Type': 'aplication/json',
+		// 	},
+		// })
+		// // console.log(res)
+		// if (!res.ok || res.body == null) {
+		// 	setStep(STEPS.ERROR)
+		// 	throw new Error('Error while generating code ')
+		// }
+		// setStep(STEPS.PREVIEW)
+		// // // leer el streaming de datos 👇🏼 ( lo refacturo con funcion generativa)
+		// // //1. crear un reader
+		// // const reader = res.body.getReader()
+		// // //2. Creas un decodificador para los textos
+		// // const decoder = new TextDecoder()
+		// // // 3. lees los datos con un loop infinito y solo parará cunado el reader te diga que ha acabado
+		// // // if (reader == null) return
+		// // while (true) {
+		// // 	const { done, value } = await reader.read()
+		// // 	const chunk = decoder.decode(value) // los chunks son las distintas partes del código, las piezas
+		// // 	// console.log(chunk)
+		// // 	setResult((prevResult) => prevResult + chunk)
+		// // 	if (done) break // aquí se para cuando acabe para que no se haga infinito
+		// // }
+		// for await (const chunk of streamReader(res)) {
+		// 	// para iterar con los chunk
+		// 	setResult((prev) => prev + chunk)
+		// }
 	}
 
 	return (
@@ -92,7 +131,7 @@ export default function Home() {
 					)}
 					{step === STEPS.INITIAL && (
 						<div className="flex flex-col gap-6">
-							<DragandDrop />
+							<DragandDrop transformImageToCode={transformImageToCode} />
 							<Form transformUrlIntoCode={transformUrlIntoCode} />
 						</div>
 					)}

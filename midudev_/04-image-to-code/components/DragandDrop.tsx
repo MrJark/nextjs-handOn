@@ -3,12 +3,15 @@
 import { Dropzone, ExtFile, FileMosaic } from '@files-ui/react'
 import { useState } from 'react'
 
-export const DragandDrop = () => {
-	const [files, setFiles] = useState<ExtFile[]>()
+export const DragandDrop = ({ transformImageToCode }: { transformImageToCode: (file: File) => void }) => {
+	// const [files, setFiles] = useState<ExtFile[]>() // esto es para el preview
 
 	const updateFiles = (files: ExtFile[]) => {
-		console.log(files)
-		setFiles(files)
+		// tienes que transfromar el File a un base 64 que básicamente es un text
+		// console.log(files)
+		// setFiles(files)
+		const file = files[0].file
+		if (file != null) transformImageToCode(file)
 	}
 	return (
 		<Dropzone
@@ -18,10 +21,10 @@ export const DragandDrop = () => {
 			label="Drag and Drop your screenchot here"
 			accept="image/*"
 			onChange={updateFiles}
-		>
-			{files?.map((file, index) => {
-				return <FileMosaic key={index} {...file} preview />
-			})}
-		</Dropzone>
+		/>
+		// No hace falta porque no le le pongo el preview
+		// {/* {files?.map((file, index) => {
+		// 	return <FileMosaic key={index} {...file} preview />
+		// })} */}
 	)
 }
