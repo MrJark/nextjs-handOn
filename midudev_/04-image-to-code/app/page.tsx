@@ -3,7 +3,8 @@
 import { Form } from '@/components/Form'
 import { useState } from 'react'
 import { STEPS } from '../components/variables/variables'
-// import { Spinner } from '@/components/spinner'
+import { Spinner } from '@/components/Spinner'
+import { DragandDrop } from '@/components/DragandDrop'
 
 async function* streamReader(res: Response) {
 	const reader = res.body?.getReader()
@@ -84,8 +85,17 @@ export default function Home() {
 			</aside>
 			<main className="bg-gray-900">
 				<section className="max-w-5xl w-full mx-auto p-10">
-					{step === STEPS.LOADING && <div className="flex justify-center items-center">{/* <Spinner /> */}</div>}
-					{step === STEPS.INITIAL && <Form transformUrlIntoCode={transformUrlIntoCode} />}
+					{step === STEPS.LOADING && (
+						<div className="flex justify-center items-center">
+							<Spinner />
+						</div>
+					)}
+					{step === STEPS.INITIAL && (
+						<div className="flex flex-col gap-6">
+							<DragandDrop />
+							<Form transformUrlIntoCode={transformUrlIntoCode} />
+						</div>
+					)}
 					{step === STEPS.PREVIEW && (
 						<div className="rounded flex flex-col gap-4">
 							<iframe srcDoc={result} className="w-full h-full border-4 rounded border-gray-400 aspect-video" />
