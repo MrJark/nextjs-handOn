@@ -21,8 +21,9 @@ export const runtime = 'edge'// esto es donde se va a ejecutar la api en vercel.
 export async function POST(req: Request) {
   // const { messages } = await req.json();
 
-  const { url } = await req.json() // esta url sale del formulario que se ha creado/el usuario a mandado en el form
+  const { url, img } = await req.json() // esta url sale del formulario que se ha creado/el usuario a mandado en el form
   // console.log(url)
+  const imageUrl = img ?? url // la condicional para que sea la misma ruta pero dependiendo lo que le pase el usuario, coja o la url o la image
   
   const response = await openai.chat.completions.create({
     // model: 'gpt-4',
@@ -44,7 +45,8 @@ export async function POST(req: Request) {
           },
           {
             type: 'image_url',
-            image_url: url
+            // image_url: url
+            image_url: imageUrl
           }
         ]
       }

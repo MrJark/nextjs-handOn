@@ -101,6 +101,8 @@ export default function Home() {
 		// }
 	}
 
+	const [background, html] = result.split('|||')
+
 	return (
 		<div className="grid grid-cols-[300px_1fr]">
 			<aside className="flex flex-col justify-between min-h-screen p-4 bg-slate-700">
@@ -137,9 +139,14 @@ export default function Home() {
 					)}
 					{step === STEPS.PREVIEW && (
 						<div className="rounded flex flex-col gap-4">
-							<iframe srcDoc={result} className="w-full h-full border-4 rounded border-gray-400 aspect-video" />
+							<div
+								className="w-full h-full border-4 rounded border-gray-700 aspect-video"
+								style={{ backgroundColor: `#${background ? background.trim() : 'fff'}` }}
+							>
+								<iframe srcDoc={result} className="w-full h-full border-4 rounded border-gray-400 aspect-video" />
+							</div>
 							<pre>
-								<code>{result}</code>
+								<code>{html}</code>
 							</pre>
 						</div>
 					)}
