@@ -3,7 +3,7 @@
 import { Form } from '@/components/Form'
 import { useState } from 'react'
 import { STEPS } from '../components/variables/variables'
-import { Spinner } from '@/components/spinner'
+// import { Spinner } from '@/components/spinner'
 
 export default function Home() {
 	const [result, setResult] = useState('') // para guardar los estados del prompt devuelto
@@ -18,6 +18,7 @@ export default function Home() {
 				'Content-Type': 'aplication/json',
 			},
 		})
+		// console.log(res)
 
 		if (!res.ok || res.body == null) {
 			setStep(STEPS.ERROR)
@@ -28,7 +29,7 @@ export default function Home() {
 
 		// leer el streaming de datos 👇🏼
 		//1. crear un reader
-		const reader = res.body?.getReader()
+		const reader = res.body.getReader()
 		//2. Creas un decodificador para los textos
 		const decoder = new TextDecoder()
 		// 3. lees los datos con un loop infinito y solo parará cunado el reader te diga que ha acabado
@@ -36,7 +37,7 @@ export default function Home() {
 		while (true) {
 			const { done, value } = await reader.read()
 			const chunk = decoder.decode(value)
-			// console.log(chunk)
+			console.log(chunk)
 			setResult((prevResult) => prevResult + chunk)
 			if (done) break // aquí se para cuando acabe para que no se haga infinito
 		}
@@ -65,13 +66,8 @@ export default function Home() {
 			</aside>
 			<main className="bg-gray-900">
 				<section className="max-w-5xl w-full mx-auto p-10">
-					{step === STEPS.LOADING && (
-						<div className="flex justify-center items-center">
-							<Spinner />
-						</div>
-					)}
+					{step === STEPS.LOADING && <div className="flex justify-center items-center">{/* <Spinner /> */}</div>}
 					{step === STEPS.INITIAL && <Form transformUrlIntoCode={transformUrlIntoCode} />}
-
 					{step === STEPS.PREVIEW && (
 						<div className="rounded flex flex-col gap-4">
 							<iframe srcDoc={result} className="w-full h-full border-4 rounded border-gray-400 aspect-video" />

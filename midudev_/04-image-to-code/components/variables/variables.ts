@@ -1,6 +1,6 @@
 
 
-export const USER_PROMPT = 'Generate code for a web page that looks exactly like this and meke it step by step'
+export const USER_PROMPT = 'Generate code for a web page that looks exactly like this'
 
 export const SYSTEM_PROMPT = `
   You are an expert Tailwind developer

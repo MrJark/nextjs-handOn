@@ -19,9 +19,11 @@ const openai = new OpenAI({ // inicializo el cliente de opneAI
 export const runtime = 'edge'// esto es donde se va a ejecutar la api en vercel. Puede ser en el edge( servidores mas cerca del usuario y así que vaya más rápìdo ) o en el cloud ( este es más barato pero también es más lento)
 
 export async function POST(req: Request) {
-  const { messages } = await req.json();
+  // const { messages } = await req.json();
 
   const { url } = await req.json() // esta url sale del formulario que se ha creado/el usuario a mandado en el form
+  // console.log(url)
+  
   const response = await openai.chat.completions.create({
     // model: 'gpt-4',
     model: 'gpt-4-vision-preview',
