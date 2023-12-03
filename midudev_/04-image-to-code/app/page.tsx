@@ -5,6 +5,20 @@ import { useState } from 'react'
 import { STEPS } from '../components/variables/variables'
 // import { Spinner } from '@/components/spinner'
 
+async function* streamReader(res: Response) {
+	const reader = res.body?.getReader()
+	const decoder = new TextDecoder()
+	if (reader == null) return
+
+	while (true) {
+		const { done, value } = await reader.read()
+		const chunk = decoder.decode(value)
+
+		yield chunk // esto es con lo que se itera, con la palabra reservada yield
+		if (done) break // aquí se para cuando acabe para que no se haga infinito
+	}
+}
+
 export default function Home() {
 	const [result, setResult] = useState('') // para guardar los estados del prompt devuelto
 	const [step, setStep] = useState(STEPS.INITIAL)
@@ -27,19 +41,23 @@ export default function Home() {
 
 		setStep(STEPS.PREVIEW)
 
-		// leer el streaming de datos 👇🏼
-		//1. crear un reader
-		const reader = res.body.getReader()
-		//2. Creas un decodificador para los textos
-		const decoder = new TextDecoder()
-		// 3. lees los datos con un loop infinito y solo parará cunado el reader te diga que ha acabado
-		// if (reader == null) return
-		while (true) {
-			const { done, value } = await reader.read()
-			const chunk = decoder.decode(value)
-			console.log(chunk)
-			setResult((prevResult) => prevResult + chunk)
-			if (done) break // aquí se para cuando acabe para que no se haga infinito
+		// // leer el streaming de datos 👇🏼 ( lo refacturo con funcion generativa)
+		// //1. crear un reader
+		// const reader = res.body.getReader()
+		// //2. Creas un decodificador para los textos
+		// const decoder = new TextDecoder()
+		// // 3. lees los datos con un loop infinito y solo parará cunado el reader te diga que ha acabado
+		// // if (reader == null) return
+		// while (true) {
+		// 	const { done, value } = await reader.read()
+		// 	const chunk = decoder.decode(value) // los chunks son las distintas partes del código, las piezas
+		// 	// console.log(chunk)
+		// 	setResult((prevResult) => prevResult + chunk)
+		// 	if (done) break // aquí se para cuando acabe para que no se haga infinito
+		// }
+		for await (const chunk of streamReader(res)) {
+			// para iterar con los chunk
+			setResult((prev) => prev + chunk)
 		}
 	}
 
