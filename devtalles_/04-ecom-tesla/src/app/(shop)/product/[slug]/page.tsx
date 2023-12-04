@@ -1,3 +1,4 @@
+import { SizeSelector } from "@/components";
 import { titleFont } from "@/config/fonts";
 import { initialData } from "@/seed/seed";
 import { notFound } from "next/navigation";
@@ -25,7 +26,11 @@ export default function Product({ params }: Props) {
         </h1>
         <p className="text-lg mb-5">${product.price.toFixed(2)}</p>
         {/* Size selector */}
-
+        <SizeSelector
+          selectedSize={product.sizes[0]}
+          availableSizes={product.sizes}
+        />
+        {/* Button */}
         <button className="btn-primary my-5">Add to cart</button>
 
         {/* Description */}

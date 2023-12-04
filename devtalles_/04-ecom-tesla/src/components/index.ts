@@ -1,4 +1,5 @@
 
+export { SizeSelector } from "./product/size_selector/SizeSelector";
 export { PageNotFound } from "./ui/not_found/PageNotFound";
 export { ProductGrid } from "./products/product_grid/ProductGrid";
 export { ProductGridItem } from "./products/product_grid/ProductGridItem";
