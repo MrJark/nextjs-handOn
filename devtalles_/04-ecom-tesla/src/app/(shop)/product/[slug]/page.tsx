@@ -31,7 +31,7 @@ export default function Product({ params }: Props) {
           availableSizes={product.sizes}
         />
         {/* Quantity Selector */}
-        <QuantitySelector />
+        <QuantitySelector quantity={2} />
         {/* Button */}
         <button className="btn-primary my-5">Add to cart</button>
 
