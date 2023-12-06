@@ -5,9 +5,10 @@ import { IoAddCircleOutline, IoRemoveCircleOutline } from "react-icons/io5";
 
 interface Props {
   quantity: number;
+  className?: string;
 }
 
-export const QuantitySelector = ({ quantity }: Props) => {
+export const QuantitySelector = ({ quantity, className }: Props) => {
   const [count, setCount] = useState(0);
 
   const onQuantityChange = (value: number) => {
@@ -15,7 +16,7 @@ export const QuantitySelector = ({ quantity }: Props) => {
     setCount(count + value);
   };
   return (
-    <div className="flex">
+    <div className={`${className} flex`}>
       <button onClick={() => onQuantityChange(-1)}>
         <IoRemoveCircleOutline
           size={30}
