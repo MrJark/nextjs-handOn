@@ -1,4 +1,5 @@
 import {
+  ProductMovileSlideShows,
   ProductSlideShows,
   QuantitySelector,
   SizeSelector,
@@ -6,6 +7,7 @@ import {
 import { titleFont } from "@/config/fonts";
 import { initialData } from "@/seed/seed";
 import { notFound } from "next/navigation";
+import { title } from "process";
 
 interface Props {
   params: {
@@ -20,10 +22,21 @@ export default function Product({ params }: Props) {
   if (!product) notFound();
 
   return (
-    <div className="mt-5 mb-20 grid grid-cols-1 md:grid-cols-3 gap-3">
+    <div className="mt-5 mb-16 grid grid-cols-1 md:grid-cols-3 gap-3">
       {/* Slideshow */}
       <div className="col-span-1 md:col-span-2">
-        <ProductSlideShows title={product.title} images={product.images} />
+        {/* Movile Slideshow */}
+        <ProductMovileSlideShows
+          title={title}
+          images={product.images}
+          className="transition-all duration-0 block md:hidden" // para pasar de movile a desktop y que sea responsive. Funciona en next porque tinee por defecto el lazyload sino se tendría uqe hacer de otra forma
+        />
+        {/* Desktop Slideshow */}
+        <ProductSlideShows
+          title={product.title}
+          images={product.images}
+          className="transition-all duration-0 hidden md:block" // para pasar de movile a desktop y que sea responsive. Funciona en next porque tinee por defecto el lazyload sino se tendría uqe hacer de otra forma
+        />
       </div>
       {/* Details */}
       <div className="col-span-1 px-5">
