@@ -7,6 +7,10 @@ module.exports = {
       {
         protocol: 'https',
         hostname: 'midu.dev'
+      },
+      {
+        protocol: 'https',
+        hostname: 'swiperjs.com'
       }
     ]
   }
