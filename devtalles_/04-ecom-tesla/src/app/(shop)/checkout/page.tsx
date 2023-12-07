@@ -78,6 +78,17 @@ export default function Cart() {
                 <span className="mt-5 text-2xl">Total:</span>
                 <span className="mt-5 text-2xl text-right">$ 242</span>
               </section>
+              <p className="mt-6 text-sm">
+                By clicking you agree to our terms and conditions of use,{" "}
+                <a className="underline italic" href="#">
+                  cookie policy
+                </a>{" "}
+                and{" "}
+                <a className="underline italic" href="#">
+                  privacy policy
+                </a>
+                .
+              </p>
             </section>
             <div className="mt-10">
               <Link
