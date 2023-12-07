@@ -15,7 +15,7 @@ export default function Cart() {
       <div className="flex flex-col w-[1000px]">
         <Title title="Your cart" />
         <div className="flex flex-row justify-between items-center m-5">
-          <span className="text-3xl underline">Items</span>
+          <span className="text-3xl ">Items</span>
           <Link href="/" className="mb-5 underline">
             Continue shopping
           </Link>

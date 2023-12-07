@@ -69,14 +69,14 @@ export default function Cart() {
             <section>
               <h2 className="text-2xl mb-2">Order summary</h2>
               <section className="grid grid-cols-2">
-                <span>Products:</span>
-                <span className=" text-right">9 articles</span>
+                <p>Products:</p>
+                <p className=" text-right">9 articles</p>
 
-                <span>Taxes:</span>
-                <span className=" text-right">21%</span>
+                <p>Taxes:</p>
+                <p className=" text-right">21%</p>
 
-                <span className="mt-5 text-2xl">Total:</span>
-                <span className="mt-5 text-2xl text-right">$ 242</span>
+                <p className="mt-5 text-2xl">Total:</p>
+                <p className="mt-5 text-2xl text-right">$ 242</p>
               </section>
               <p className="mt-6 text-sm">
                 By clicking you agree to our terms and conditions of use,{" "}
