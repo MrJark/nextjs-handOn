@@ -10,7 +10,9 @@ Ecommerce de cabeza a pies con artículos ficticios de Tesla para practicar el n
 2. Crear una copia del archivo `.env.template` y renombrarlo a `.env` y cambiar las variables de entorno a las que tengas
 3. Para descargar los paquetes de Node `npm install`
 4. Levantar la base de datos `docker compose up -d`
-5. Correr el proyecto con `npm run dev`
+5. Correr las migraciones de prisma con `npx prisma migrate dev`
+6. Ejecutar el seed `npm run seed`
+7. Correr el proyecto con `npm run dev`
 
 ### Correr en prod
 
@@ -28,6 +30,7 @@ Ecommerce de cabeza a pies con artículos ficticios de Tesla para practicar el n
   - [Prisma](https://www.prisma.io/docs/getting-started/quickstart)
   - [Docker](https://www.docker.com)
   - [Table Plus](https://tableplus.com)
+- Para leer archivos con Node en TS instalo el ts-node como dependencia de desarrollo `npm i -D ts-node`
 
 ## Comentarios útiles
 
