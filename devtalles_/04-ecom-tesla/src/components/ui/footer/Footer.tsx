@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const Footer = () => {
   return (
-    <footer className="flex w-fill justify-center text-sm mb-10 antialiased font-bold">
+    <footer className="flex w-fill justify-center text-lg mb-10 antialiased font-semibold">
       <Link href="/">
         <ul className={` ${titleFont.className} flex gap-1`}>
           <li>Tesla ©</li>
@@ -12,7 +12,7 @@ export const Footer = () => {
       </Link>
       <Link href="/" className=" ml-6">
         <ul
-          className={`${titleFont.className} flex gap-6 text-sm antialiased font-bold`}
+          className={`${titleFont.className} flex gap-6 text-lg antialiased font-semibold`}
         >
           <li>Privacy & Legal</li>
           <li>Vehicle Recalls</li>

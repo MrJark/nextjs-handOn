@@ -8,9 +8,13 @@ Ecommerce de cabeza a pies con artículos ficticios de Tesla para practicar el n
 
 1. Clonar el repo
 
-2. Para descargar los paquetes de Node `npm install`
+2. Crear una copia del archivo `.env.template` y renombrarlo a `.env` y cambiar las variables de entorno a las que tengas
 
-3. Correr el proyecto con `npm run dev`
+3. Para descargar los paquetes de Node `npm install`
+
+4. Levantar la base de datos `docker compose up -d`
+
+5. Correr el proyecto con `npm run dev`
 
 ### Correr en prod
 
