@@ -2,9 +2,19 @@
 
 Ecommerce de cabeza a pies con artículos ficticios de Tesla para practicar el nuevo Next 13 y superiores
 
-## Init
+## Init the project
 
-- He inicializado el proyecto con **npm** y pra descarcar los módulos haz **npm i**
+### Correr en dev
+
+1. Clonar el repo
+
+2. Para descargar los paquetes de Node `npm install`
+
+3. Correr el proyecto con `npm run dev`
+
+### Correr en prod
+
+1.
 
 ## Dependencias e Instalaciones
 
