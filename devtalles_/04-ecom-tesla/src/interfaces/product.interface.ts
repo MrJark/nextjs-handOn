@@ -1,6 +1,6 @@
 // interfaz provisional
 export interface Product {
-  // id: string
+  id: string // puedes hacerlo obligatorio gracias a que está en la basa de prisma
   description: string;
   images: string[];
   inStock: number;
@@ -9,7 +9,7 @@ export interface Product {
   slug: string;
   tags: string[];
   title: string;
-  type: Types;
+  // type: Types; // se genera una incompatibilidad porque en la DB tienes category y aquí type
   gender: Genders
 }
 
