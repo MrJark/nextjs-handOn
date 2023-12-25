@@ -1,6 +1,8 @@
 
+
 export { Footer } from "./ui/footer/Footer";
 export { PageNotFound } from "./ui/not_found/PageNotFound";
+export { Pagination } from './ui/pagination/Pagination';
 export { ProductGrid } from "./products/product_grid/ProductGrid";
 export { ProductGridItem } from "./products/product_grid/ProductGridItem";
 export { ProductMovileSlideShows } from "./product/slides_show/ProductMovileSlideShows copy";

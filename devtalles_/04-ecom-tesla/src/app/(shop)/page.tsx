@@ -1,4 +1,4 @@
-import { ProductGrid, Title } from "@/components";
+import { Pagination, ProductGrid, Title } from "@/components";
 // import { initialData } from "../../seed/seed";
 import { getPaginatedProductsWithImages } from "@/actions";
 import { redirect } from "next/navigation";
@@ -14,10 +14,12 @@ interface Props {
 
 export default async function Home({ searchParams }: Props) {
   const page = searchParams.page ? parseInt(searchParams.page) : 1; // para la paginación
-  const { products } = await getPaginatedProductsWithImages({ page });
+  const { products, currentPage, totalPage } =
+    await getPaginatedProductsWithImages({ page });
   // console.log(searchParams);
 
   if (products.length === 0) {
+    // para redireccionar al home cuando no haya más páginas
     redirect("/");
   }
 
@@ -25,6 +27,7 @@ export default async function Home({ searchParams }: Props) {
     <>
       <Title title="Shop" subTitle="All Products" className="mb-2" />
       <ProductGrid products={products} />
+      <Pagination totalPages={totalPage} />
     </>
   );
 }
