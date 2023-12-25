@@ -1,19 +1,15 @@
-import { ProductGrid, Title } from "@/components"
-import { initialData } from '../../seed/seed';
+import { ProductGrid, Title } from "@/components";
+import { initialData } from "../../seed/seed";
+import { getPaginatedProductsWithImages } from "@/actions";
 
+const products = initialData.products;
 
-const products = initialData.products
-
-
-export default function Home() {
+export default async function Home() {
+  const productsTemp = await getPaginatedProductsWithImages();
   return (
     <>
-      <Title 
-        title="Shop"
-        subTitle="All Products"
-        className="mb-2"
-      />
-      <ProductGrid products={products}/>
+      <Title title="Shop" subTitle="All Products" className="mb-2" />
+      <ProductGrid products={products} />
     </>
-  )
+  );
 }
