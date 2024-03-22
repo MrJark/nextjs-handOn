@@ -1,3 +1,0 @@
-export { CartCounter } from "./CartCounter";
-
-

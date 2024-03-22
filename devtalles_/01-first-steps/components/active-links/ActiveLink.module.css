@@ -1,9 +1,0 @@
-
-
-.link {
-    @apply hover:text-green-dabadi hover:animate-pulse transition-all
-}
-
-.active-link {
-    @apply text-blue-dabadi
-}
