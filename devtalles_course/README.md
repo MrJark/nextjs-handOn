@@ -20,4 +20,48 @@ Un repo donde voy a ir haciendo proyectos para practicar el framework de React, 
 
 - Los componentes que sean `'use client'` **NO** pueden ser _[Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/forms-and-mutations#how-server-actions-work)_. Los server actions permiten evitar crear los API endpoints
 
-- 
+---
+
+## How to update Node
+
+Para cambiar de versión en Node en macOS, puedes utilizar NVM (Node Version Manager). Asegúrate de tener Git instalado, ya que NVM depende de él. Sigue estos pasos:
+
+Instala NVM siguiendo las instrucciones en la página oficial de NVM. Para instalar NVM en macOS, abre la Terminal y ejecuta el siguiente comando:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+Esto descargará e instalará NVM en tu sistema.
+
+Cierra y vuelve a abrir la Terminal para que los cambios surtan efecto.
+Verifica que NVM se haya instalado correctamente ejecutando el siguiente comando:
+nvm --version
+
+Esto debería mostrar la versión de NVM instalada.
+
+Para ver todas las versiones de Node.js que tienes instaladas, ejecuta el siguiente comando:
+nvm ls
+
+Si deseas instalar una nueva versión de Node.js, ejecuta el siguiente comando y reemplaza con la versión que deseas instalar:
+nvm install <version>
+
+Por ejemplo, para instalar la versión 16.14.0, ejecuta:
+
+nvm install 16.14.0
+
+Para cambiar entre versiones de Node.js, ejecuta el siguiente comando y reemplaza con la versión que deseas utilizar:
+nvm use <version>
+
+Por ejemplo, para usar la versión 16.14.0, ejecuta:
+
+nvm use 16.14.0
+
+Si deseas que una versión específica de Node.js sea la versión predeterminada, ejecuta el siguiente comando y reemplaza con la versión que deseas establecer como predeterminada:
+nvm alias default <version>
+
+Por ejemplo, para establecer la versión 16.14.0 como predeterminada, ejecuta:
+
+nvm alias default 16.14.0
+
+Para ver las versiones de Node.js disponibles para instalar, ejecuta el siguiente comando:
+nvm ls-remote
+
+Recuerda reemplazar con la versión específica que deseas instalar o usar en cada comando.
