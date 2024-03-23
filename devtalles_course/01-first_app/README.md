@@ -7,6 +7,8 @@
   "dev": "next dev --turbo",
   </code>
 
+- Para los icons voy a usar [Primer Design System](https://primer.style/foundations/icons) y lo instalo a travez de `npm install @primer/octicons-react`
+
 ## Comentarios y recomendaciones
 
 - Cómo funcionan y qué metatags son importante [by Google](https://developers.google.com/search/docs/crawling-indexing/special-tags)
