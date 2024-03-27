@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { navItems } from "./navbar_items/navbar_items";
+
+import { ActiveLink, navHomeItem, navItems } from "..";
 
 // me los llevo a una carpeta a parte
 // const navItems = [
@@ -27,7 +28,7 @@ import { navItems } from "./navbar_items/navbar_items";
 
 export const Navbar = () => {
   return (
-    <nav className="flex bg-gray-500 text-pink-500 bg-opacity-30 p-2 m-2 rounded">
+    <nav className="flex justify-between bg-gray-500 bg-opacity-30 p-2 m-2 rounded">
       {/* <Link
         className=" flex items-center p-1 rounded hover:bg-gray-600 hover:transition-all hover:duration-300 ml-2"
         href={`/`}
@@ -55,27 +56,43 @@ export const Navbar = () => {
         Prices
       </Link> */}
       {/** Forma más sencilla de escribirlo 👇🏼 */}
-      {navItems.map((navItem) => (
-        <Link
-          key={navItem.path}
-          className=" flex items-center p-1 rounded hover:bg-gray-600 hover:transition-all hover:duration-300 ml-2"
-          href={navItem.path}
-        >
-          {navItem.icon}
-          {navItem.text}
-        </Link>
-      ))}
+      <div className="flex">
+        {navHomeItem.map((homeItem) => (
+          <Link
+            key={homeItem.path}
+            href={homeItem.path}
+            className=" flex items-center p-1 rounded hover:bg-gray-600 hover:transition-all hover:duration-300 ml-2"
+          >
+            {homeItem.icon}
+            {homeItem.text}
+          </Link>
+        ))}
+      </div>
+      <div className="flex">
+        {navItems.map((navItem) => (
+          // <Link
+          //   key={navItem.path}
+          //   className=" flex items-center p-1 rounded hover:bg-gray-600 hover:transition-all hover:duration-300 ml-2"
+          //   href={navItem.path}
+          // >
+          //   {navItem.icon}
+          //   {navItem.text}
+          // </Link>
+          <ActiveLink key={navItem.path} {...navItem} /> // se puede con el operador o desestructurar los elementos como path={} y text={}
+        ))}
+      </div>
     </nav>
   );
 };
 
-interface NavbarLinks {
-  className:
-    | string
-    | [string]
-    | "p-1 rounded hover:bg-gray-600 hover:transition-all hover:duration-300 ml-2";
-  href: string;
-}
-export function NavbarLinks() {
-  return <></>;
-}
+// Para simplificar código y hacerlo por componentes
+// interface NavbarLinks {
+//   className:
+//     | string
+//     | [string]
+//     | "p-1 rounded hover:bg-gray-600 hover:transition-all hover:duration-300 ml-2";
+//   href: string;
+// }
+// export function NavbarLinks() {
+//   return <></>;
+// }
