@@ -61,7 +61,7 @@ export const Navbar = () => {
           <Link
             key={homeItem.path}
             href={homeItem.path}
-            className=" flex items-center p-1 rounded hover:bg-gray-600 hover:transition-all hover:duration-300 ml-2"
+            className="flex items-center p-1 rounded hover:bg-gray-600 hover:transition-all hover:duration-300 ml-2"
           >
             {homeItem.icon}
             {homeItem.text}

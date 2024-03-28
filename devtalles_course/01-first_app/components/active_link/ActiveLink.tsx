@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import style from "./ActiveLink.module.css";
 import { usePathname } from "next/navigation";
+
+import style from "./ActiveLink.module.css";
 
 interface Props {
   path: string;
@@ -10,16 +11,20 @@ interface Props {
 }
 
 export const ActiveLink = ({ path, text }: Props) => {
-  const pathName = usePathname(); // con este es necesario usar el 'use client'
-  // el usePathname lo uso para cambiar los links y que se activen de forma dinámica con la ruta -path-
-  // console.log(pathName);
+  const pathName = usePathname();
+  console.log({ pathName, path });
 
   return (
     <Link
-      className={`
-          ${style.link} 
-          ${pathName === path && style["active-link"]}
-        `} // se pone entre [] porque lleva el - y si lo dejas sin estos, sería como restar dos variables.
+      className={`ml-2 ${
+        pathName === path
+          ? "text-pink-600 transition-all"
+          : "text-white hover:underline hover:text-pink-600 transition-all"
+      }`}
+      // trabajar con lo de arriba y de abajo, es lo mismo, solo que esto siguiente tienes que crear el .module.css
+      // className={`ml-2 ${style.link} ${
+      //   pathName === path && style["active-link"]
+      // }`}
       href={path}
     >
       {text}
