@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { IoLogoReact } from "react-icons/io5";
-import { menuItems } from "./MenuItems";
-import { SidebarMenu } from "./SidebarMenu";
+import { SidebarMenu, menuItems } from "..";
 
 export const Sidebar = () => {
   return (
