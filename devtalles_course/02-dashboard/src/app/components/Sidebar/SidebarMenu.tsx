@@ -16,7 +16,7 @@ export const SidebarMenu = ({
   path,
   subtitle,
   title,
-  className = "w-full mb-3 transition-all rounded-lg px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-white/5 ease-linear duration-300",
+  className = "w-full mb-3 transition-all rounded-lg px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 ease-linear duration-300",
 }: Props) => {
   const currentPath = usePathname();
   // console.log({ currentPath, path });
