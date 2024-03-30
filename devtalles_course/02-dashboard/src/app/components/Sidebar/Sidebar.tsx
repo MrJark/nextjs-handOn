@@ -7,7 +7,7 @@ export const Sidebar = () => {
     <nav
       id="menu"
       style={{ width: "300px" }}
-      className="bg-gray-900 min-h-screen z-10 text-slate-300 w-56 left-0 h-screen overflow-y-scroll"
+      className="bg-gray-900 min-h-screen z-10 text-slate-300 w-56 left-0 overflow-y-scroll"
     >
       <div id="logo" className="my-2 px-6">
         <h1 className="flex items-center text-lg md:text-2xl font-bold text-white">
