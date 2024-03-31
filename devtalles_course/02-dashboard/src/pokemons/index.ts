@@ -11,3 +11,6 @@ export { ImagePokemonCard } from "./components/cards/ImagePokemonCard";
 
 // Components to pokedex
 export { getPokemon } from "./components/pokedex/getPokemon";
+
+// Coponent to metadata
+export { GenerateMetadata } from "./components/metadata/MetadataFunc";

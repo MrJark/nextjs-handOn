@@ -12,7 +12,7 @@ export const Sidebar = () => {
       <div id="logo" className="my-2 px-6">
         <h1 className="flex items-center text-lg md:text-2xl font-bold text-white">
           <IoLogoReact className="mr-2 transition-all animate-spin duration-300" />
-          <span>mrjark pages</span>
+          <span>mrjark´ page</span>
         </h1>
         <p className="text-slate-500 text-sm">
           Manage your actions and activities
