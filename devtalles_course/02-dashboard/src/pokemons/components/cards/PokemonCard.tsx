@@ -1,6 +1,8 @@
-import { SimplePokemon } from "../../interfaces/simple-pokemon";
-
-import { ButtonsPokemonCard, ImagePokemonCard } from "../..";
+import {
+  ButtonsPokemonCard,
+  ImagePokemonCard,
+  SimplePokemon,
+} from "@/pokemons";
 
 interface Props {
   simplePokemon: SimplePokemon;
