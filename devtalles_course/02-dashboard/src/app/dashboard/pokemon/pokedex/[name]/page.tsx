@@ -4,6 +4,7 @@ import { getPokemon } from "@/pokemons";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import {
   IoArrowBack,
   IoArrowBackCircle,
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   } catch (error) {
     console.log("This is the error: ", error);
 
+    notFound();
     return {
       title: "Pokedex´ Pokemon page",
       description: "Pokedex´ pokemon description",
