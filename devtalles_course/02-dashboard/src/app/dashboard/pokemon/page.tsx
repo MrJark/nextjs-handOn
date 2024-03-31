@@ -1,4 +1,4 @@
-import { PokemonGrid, PokemonResponse, SimplePokemon } from "@/app/pokemons";
+import { PokemonGrid, PokemonResponse, SimplePokemon } from "@/pokemons";
 import Image from "next/image";
 
 interface Props {
@@ -16,6 +16,7 @@ const getPokemon = async (limit = 20, offset = 0): Promise<SimplePokemon[]> => {
     name: pokemon.name,
   }));
 
+  // throw new Error("Something wrong");
   return pokemons;
 };
 
