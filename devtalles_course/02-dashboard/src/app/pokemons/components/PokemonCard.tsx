@@ -1,7 +1,15 @@
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+
 import { SimplePokemon } from "../interfaces/simple-pokemon";
-import { IoAlbumsOutline, IoGameControllerOutline } from "react-icons/io5";
+
+import {
+  IoAlbumsOutline,
+  IoGameControllerOutline,
+  IoGameControllerSharp,
+} from "react-icons/io5";
+import { ButtonsPokemonCard, ImagePokemonCard } from "..";
 
 interface Props {
   simplePokemon: SimplePokemon;
@@ -13,57 +21,10 @@ export const PokemonCard = ({ simplePokemon }: Props) => {
   return (
     <article className="mx-auto right-0 mt-2 w-60">
       <section className="bg-white rounded overflow-hidden shadow-lg">
-        <section className="text-center p-6 bg-gray-800 border-b">
-          <svg
-            aria-hidden="true"
-            role="img"
-            className="h-24 w-24 text-white rounded-full mx-auto"
-            width="32"
-            height="32"
-            preserveAspectRatio="xMidYMid meet"
-            viewBox="0 0 256 256"
-          >
-            <path
-              fill="currentColor"
-              d="M172 120a44 44 0 1 1-44-44a44 44 0 0 1 44 44Zm60 8A104 104 0 1 1 128 24a104.2 104.2 0 0 1 104 104Zm-16 0a88 88 0 1 0-153.8 58.4a81.3 81.3 0 0 1 24.5-23a59.7 59.7 0 0 0 82.6 0a81.3 81.3 0 0 1 24.5 23A87.6 87.6 0 0 0 216 128Z"
-            ></path>
-          </svg>
-          <p className="pt-2 text-lg font-semibold text-gray-50">{name}</p>
-          {/* <p className="text-sm text-gray-100">stats?</p> */}
-          {/* <div className="mt-5">
-            <a className="border rounded-full py-2 px-4 text-xs font-semibold text-gray-100">
-              Manage your Account
-            </a>
-          </div> */}
-        </section>
-        <section className="border-b">
-          <Link
-            className="px-4 py-2 hover:bg-gray-100 flex items-center justify-center"
-            href="/dashboard/main"
-          >
-            <IoAlbumsOutline className="text-red-600" size={40} />
-            <div className="pl-3">
-              <p className="text-sm font-medium text-gray-800 leading-none">
-                Pokedex
-              </p>
-              <p className="text-xs text-gray-500">View the pokemon</p>
-            </div>
-          </Link>
-          <Link
-            className="px-4 py-2 hover:bg-gray-100 flex items-center justify-center"
-            href="/dashboard/main"
-          >
-            <IoGameControllerOutline className="text-blue-800" size={40} />
-            <div className="pl-3">
-              <p className="text-sm font-medium text-gray-800 leading-none">
-                to competitive?
-              </p>
-              {/* <p className="text-xs text-gray-500">
-                Is this pokemons good for competitive?
-              </p> */}
-            </div>
-          </Link>
-        </section>
+        <ImagePokemonCard id={id} name={name} />
+        {/* <ImagePokemonCard {...simplePokemon} />  Ambas opciones, la de arriba como esta son válidas porque tinen el mismo nombre y con el spread se puede, si no solo sería válida la de arriba*/}
+        <ButtonsPokemonCard id={id} name={name} />
+        {/* <ButtonsPokemonCard {...simplePokemon} /> */}
 
         {/* <div className="">
           <button className="w-full px-4 py-2 pb-4 hover:bg-gray-100 flex">
