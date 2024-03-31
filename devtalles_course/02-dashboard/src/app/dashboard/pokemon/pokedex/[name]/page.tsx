@@ -17,13 +17,23 @@ interface Props {
 
 // he tendio que hacer la metadata dinámica aquí en vez de exportarla a un compoente separado
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const pokemon = await getPokemon(params);
-  // const { id, name } = pokemon; // puedes desestructurar más elementos, todos los que vienen
-  return {
-    title: `${pokemon.name.toUpperCase()} Pokedex page`,
-    description: `Page for ${pokemon.name} with id #${pokemon.id}`,
-    // lo que viene aquí dentro es la metadata que se va a mostrar en la página y puedes generar cualquier tipo de metadata
-  };
+  // para tener un resguardo por si la metadata falla
+  try {
+    const pokemon = await getPokemon(params);
+    // const { id, name } = pokemon; // puedes desestructurar más elementos, todos los que vienen
+    return {
+      title: `${pokemon.name.toUpperCase()} Pokedex page`,
+      description: `Page for ${pokemon.name} with id #${pokemon.id}`,
+      // lo que viene aquí dentro es la metadata que se va a mostrar en la página y puedes generar cualquier tipo de metadata
+    };
+  } catch (error) {
+    console.log("This is the error: ", error);
+
+    return {
+      title: "Pokedex´ Pokemon page",
+      description: "Pokedex´ pokemon description",
+    };
+  }
 }
 
 export default async function PokemonPage({ params }: Props) {
