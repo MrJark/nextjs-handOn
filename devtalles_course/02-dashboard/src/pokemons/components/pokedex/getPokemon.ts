@@ -8,7 +8,7 @@ interface Props {
 
 export const getPokemon = async ({ name }: Props): Promise<Pokemon> => {
   const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`, {
-    cache: "force-cache", // para forzar a que se quede en caché la info
+    // cache: "force-cache", // para forzar a que se quede en caché la info pero no tiene sentido que se fuerce y a que a su vez se valide
     next: {
       revalidate: 60 * 60 * 24 * 30 * 6, // para que se recarge la página que se quedó en el caché cada 6 meses (60"*60'*24h*30días*6meses) qeu es más o menos cada cuanto sacan un juego nuevoi y por tanto, cada vez que pueden modificar la data de los pokemons
     },

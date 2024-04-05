@@ -1,5 +1,4 @@
 import { PokemonGrid, PokemonResponse, SimplePokemon } from "@/pokemons";
-import Image from "next/image";
 
 interface Props {
   limit: number;
