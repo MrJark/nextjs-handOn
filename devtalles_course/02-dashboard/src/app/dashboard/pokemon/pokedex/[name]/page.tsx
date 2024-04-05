@@ -50,7 +50,10 @@ export default async function PokemonPage({ params }: Props) {
                 #{pokemon.id} {pokemon.name}
               </h1>
               <Link href="/dashboard/pokemon">
-                <IoArrowBackOutline size={40} />
+                <IoArrowBackOutline
+                  className="hover:text-[#ff3ea5] transition-all duration-300"
+                  size={40}
+                />
               </Link>
             </section>
             <div className="flex flex-col justify-center items-center">
