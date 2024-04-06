@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
+import { Providers } from "@/store/providers/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <Provider store={store}> */}
-        {/* el provider solo puede ser desde el lado del cliente por eso revienta si no se hace pero para no hacer toda la app 'use client' pero el problea está en que solo ciertos componentes de NExt pueden ser cllient side por ende, aquí no se debe poner el provider. Se tiene que poner en una layer muy alta pero no aquí. Lo hago a parte en el store/providers*/}
-        {children}
-        {/* </Provider> */}
+        {/* 
+          <Provider store={store}></Provider> 
+          el provider solo puede ser desde el lado del cliente por eso revienta si no se hace pero para no hacer toda la app 'use client' pero el problea está en que solo ciertos componentes de NExt pueden ser cllient side por ende, aquí no se debe poner el provider. Se tiene que poner en una layer muy alta pero no aquí. Lo hago a parte en el store/providers
+        */}
+        {/* pero si crear el provider y lo haces con el slice a parte, que es lo que hace falta para que funcione el Reducer de Redux si que te permite colocarlo a esta altura */}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
