@@ -2,6 +2,7 @@ import { CartCounter } from "@/shopping-cart";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  // la metadata no está del lado del cliente NUNCA
   title: "Counter Page",
   description: "Counter Page",
 };
