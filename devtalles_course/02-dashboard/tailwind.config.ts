@@ -3,7 +3,7 @@ import type { Config } from "tailwindcss";
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/general_components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/UI_components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/pokemons/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/shopping-cart/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",

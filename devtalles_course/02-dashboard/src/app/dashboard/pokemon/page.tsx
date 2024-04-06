@@ -5,6 +5,11 @@ interface Props {
   offset: number;
 }
 
+export const metadata = {
+  title: "Pokedex page",
+  description: "Pokedex page",
+};
+
 const getPokemon = async (limit = 20, offset = 0): Promise<SimplePokemon[]> => {
   const data: PokemonResponse = await fetch(
     `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`

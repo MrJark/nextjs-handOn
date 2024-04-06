@@ -1,4 +1,9 @@
-import { IoBasketball, IoBrowsersOutline, IoCalculator } from "react-icons/io5";
+import {
+  IoBasketball,
+  IoBrowsersOutline,
+  IoCalculator,
+  IoGameControllerOutline,
+} from "react-icons/io5";
 
 interface Props {
   path: string;
@@ -25,5 +30,11 @@ export const menuItems = [
     icon: <IoBasketball size={40} />,
     title: "Pokemon",
     subtitle: "Pokedex page",
+  },
+  {
+    path: "/dashboard/competitive",
+    icon: <IoGameControllerOutline size={40} />,
+    title: "Competitive",
+    subtitle: "Competitive page",
   },
 ];

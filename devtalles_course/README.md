@@ -71,3 +71,5 @@ Recuerda reemplazar con la versión específica que deseas instalar o usar en ca
 - [React Icons](https://react-icons.github.io/react-icons/) a través de `npm install react-icons --save`
 
 - El avatar lo he conseguido de [unavatar](https://unavatar.io/#/) y para configurarlo he hecho con la [info de Nextjs](https://nextjs.org/docs/app/api-reference/components/image#remotepatterns)
+
+- Para manejar estados en el _02-dashboard_ voy a instalar [Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started)

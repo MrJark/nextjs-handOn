@@ -6,7 +6,7 @@ export const Sidebar = () => {
   return (
     <nav
       id="menu"
-      style={{ width: "300px" }}
+      style={{ width: "320px" }}
       className="bg-gray-900 min-h-screen z-10 text-slate-300 w-56 left-0 overflow-y-scroll"
     >
       <div id="logo" className="my-2 px-6">

@@ -1,4 +1,3 @@
-import { Sidebar } from "@/general_components";
 import Link from "next/link";
 
 export default function NotFound() {
