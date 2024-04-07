@@ -1,6 +1,7 @@
 "use client"; // los reducer funcionan del lado del cliente
 
 import { useAppDispatch, useAppSelector } from "@/store";
+import { getAPICounter } from "@/store/counter";
 import {
   addOne,
   initCounterState,
@@ -18,10 +19,13 @@ export const CartCounter = ({ value = 0 }: Props) => {
   const count = useAppSelector((state) => state.counter.count);
   const dispatch = useAppDispatch();
 
+  // useEffect(() => {
+  //   // uso este hook para llamar un efecto para cunado el componente sea creado, es decir, depende del value, que es lo que le mando al componente como prop opcional, y el dispatch que es la acción para comunicarse con el store
+  //   dispatch(initCounterState(value));
+  // }, [dispatch, value]);
   useEffect(() => {
-    // uso este hook para llamar un efecto para cunado el componente sea creado, es decir, depende del value, que es lo que le mando al componente como prop opcional, y el dispatch que es la acción para comunicarse con el store
-    dispatch(initCounterState(value));
-  }, [dispatch, value]);
+    getAPICounter().then((data) => dispatch(initCounterState(data.count))); // lo hago así porque un useEffect no puede ser async
+  }, [dispatch]);
 
   return (
     <section className="grid place-items-center">
