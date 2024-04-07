@@ -2,7 +2,7 @@ import {
   IoBasketball,
   IoBrowsersOutline,
   IoCalculator,
-  IoGameControllerOutline,
+  IoGameController,
 } from "react-icons/io5";
 
 interface Props {
@@ -33,7 +33,7 @@ export const menuItems = [
   },
   {
     path: "/dashboard/competitive",
-    icon: <IoGameControllerOutline size={40} />,
+    icon: <IoGameController size={40} />,
     title: "Competitive",
     subtitle: "Competitive page",
   },

@@ -11,7 +11,7 @@ export const ButtonsPokemonCard = ({ id, name }: Props) => {
   return (
     <section className="border-b">
       <BtnPokedex name={name} />
-      <BtnCompetitive />
+      <BtnCompetitive id={id} />
     </section>
   );
 };
