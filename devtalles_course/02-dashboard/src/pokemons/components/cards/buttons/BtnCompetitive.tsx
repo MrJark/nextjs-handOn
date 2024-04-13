@@ -14,7 +14,7 @@ interface Props {
 export const BtnCompetitive = ({ pokemon }: Props) => {
   const { id, name } = pokemon;
   const isCompetitive = useAppSelector(
-    (state) => !!state.competitivePokemon[id] // la doble negación es para que sea true or false
+    (state) => !!state.competitivePokemon.competitive[id] // la doble negación es para que sea true or false
   ); // eso esto para ver en el store si hay algún pokemon marcado para competitivo
 
   // console.log(isCompetitive);
