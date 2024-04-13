@@ -1,11 +1,14 @@
+import { SimplePokemon } from "@/pokemons/interfaces/simple-pokemon";
 import Link from "next/link";
 import { IoAlbumsOutline } from "react-icons/io5";
 
 interface Props {
-  name: string;
-  id?: number;
+  // name: string;
+  // id?: number;
+  pokemon: SimplePokemon;
 }
-export const BtnPokedex = ({ name, id }: Props) => {
+export const BtnPokedex = ({ pokemon }: Props) => {
+  const { name } = pokemon;
   return (
     <Link
       className="px-4 py-2 hover:bg-gray-100 flex items-center justify-center"

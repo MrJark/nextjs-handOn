@@ -1,10 +1,13 @@
+import { SimplePokemon } from "@/pokemons/interfaces/simple-pokemon";
 import Image from "next/image";
 
 interface Props {
-  id: string;
-  name: string;
+  // id: string;
+  // name: string;
+  pokemon: SimplePokemon;
 }
-export const ImagePokemonCard = ({ name, id }: Props) => {
+export const ImagePokemonCard = ({ pokemon }: Props) => {
+  const { id, name } = pokemon;
   return (
     <section className="flex flex-col items-center p-6 bg-gray-800 border-b">
       <p className="pt-2  capitalize text-lg font-semibold text-gray-50">
