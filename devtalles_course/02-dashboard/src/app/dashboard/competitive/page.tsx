@@ -1,9 +1,8 @@
-import { PokemonGrid, PokemonResponse, SimplePokemon } from "@/pokemons";
-
-interface Props {
-  limit?: number;
-  offset?: number;
-}
+import {
+  CompetitivePokemon,
+  NoCompetitivePokemonYet,
+  PokemonGrid,
+} from "@/pokemons";
 
 export const metadata = {
   title: "Your competitive Pokemons page",
@@ -19,7 +18,9 @@ export default async function Pekemon() {
         </h1>
         <span className="text-lg font-bold text-black">(Dynamic)</span>
       </section>
-      <PokemonGrid pokemons={[]} />
+      {/* <PokemonGrid pokemons={[]} /> */}
+      <CompetitivePokemon />
+      {/* <NoCompetitivePokemonYet /> */}
     </main>
   );
 }

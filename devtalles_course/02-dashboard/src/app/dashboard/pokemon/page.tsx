@@ -1,4 +1,9 @@
-import { PokemonGrid, PokemonResponse, SimplePokemon } from "@/pokemons";
+import {
+  PokemonGrid,
+  PokemonResponse,
+  SimplePokemon,
+  getUnstructurePokemon,
+} from "@/pokemons";
 
 interface Props {
   limit: number;
@@ -10,22 +15,22 @@ export const metadata = {
   description: "Pokedex page",
 };
 
-const getPokemon = async (limit = 20, offset = 0): Promise<SimplePokemon[]> => {
-  const data: PokemonResponse = await fetch(
-    `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
-  ).then((res) => res.json());
+// const getPokemon = async (limit = 20, offset = 0): Promise<SimplePokemon[]> => {
+//   const data: PokemonResponse = await fetch(
+//     `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
+//   ).then((res) => res.json());
 
-  const pokemons = data.results.map((pokemon) => ({
-    id: pokemon.url.split("/").at(-2)!, // la id viene en la url, el último elemento ej: https://pokeapi.co/api/v2/ability/7/ por tanto, lo que hacese es cortar -split- la url por los slash -/- y te quedas con el último elemento -.at(-2)- que es el id. Si pones (-1) coge el último espacio vacio
-    name: pokemon.name,
-  }));
+//   const pokemons = data.results.map((pokemon) => ({
+//     id: pokemon.url.split("/").at(-2)!, // la id viene en la url, el último elemento ej: https://pokeapi.co/api/v2/ability/7/ por tanto, lo que hacese es cortar -split- la url por los slash -/- y te quedas con el último elemento -.at(-2)- que es el id. Si pones (-1) coge el último espacio vacio
+//     name: pokemon.name,
+//   }));
 
-  // throw new Error("Something wrong");
-  return pokemons;
-};
+//   // throw new Error("Something wrong");
+//   return pokemons;
+// };
 
 export default async function Pekemon() {
-  const pokemons = await getPokemon(151);
+  const pokemons = await getUnstructurePokemon(151);
   return (
     <main className="mx-1 my-2">
       <section className="flex gap-2 items-end justify-center mb-10">
